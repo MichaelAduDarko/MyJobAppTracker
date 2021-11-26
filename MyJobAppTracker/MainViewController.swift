@@ -39,6 +39,8 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    private let dividerView = DividerView()
+    
     private let wishListCount : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .backgroundColor)
         label.text = "8"
@@ -64,7 +66,7 @@ class MainViewController: UIViewController {
     }()
     
     private let offerCount : CustomLabel = {
-        let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemGray4)
+        let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemGreen)
         label.text = "4"
         return label
     }()
@@ -87,8 +89,7 @@ class MainViewController: UIViewController {
         return label
     }()
     
-  
-    
+
     private let backgroundView = Customview(color: .mainBlueTintColor)
     
     override func viewDidLoad() {
@@ -111,8 +112,8 @@ class MainViewController: UIViewController {
     //MARK:- Helpers
     
     private func configureUI(){
-        profileImageView.setDimensions(height: 130, width: 130)
-        profileImageView.layer.cornerRadius = 130 / 2
+        profileImageView.setDimensions(height: 135, width: 135)
+        profileImageView.layer.cornerRadius = 135 / 2
         view.backgroundColor = .white
         
         backgroundView.addSubview(profileImageView)
@@ -127,6 +128,9 @@ class MainViewController: UIViewController {
         
         backgroundView.addSubview(stackView)
         stackView.anchor(top: backgroundView.topAnchor, left: backgroundView.leftAnchor, right: profileImageView.leftAnchor, paddingTop: 10 , paddingLeft: 10, paddingRight: 10 )
+        
+        backgroundView.addSubview(dividerView)
+        dividerView.anchor(top: stackView.bottomAnchor, left: backgroundView.leftAnchor,right: backgroundView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingRight: 10)
         
         let statusCountStackView = UIStackView(arrangedSubviews: [wishListCount,UIView(),inProgressCount,UIView(), offerCount, UIView(), rejectionCount])
         statusCountStackView.axis = .horizontal
