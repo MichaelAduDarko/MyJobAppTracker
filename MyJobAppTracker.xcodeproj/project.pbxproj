@@ -16,13 +16,14 @@
 		474FE958274DBBF900D08732 /* MyJobAppTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE957274DBBF900D08732 /* MyJobAppTrackerUITests.swift */; };
 		474FE95A274DBBF900D08732 /* MyJobAppTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE959274DBBF900D08732 /* MyJobAppTrackerUITestsLaunchTests.swift */; };
 		474FE968274DBD2400D08732 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE967274DBD2400D08732 /* Extension.swift */; };
-		474FE96A274DBD9F00D08732 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE969274DBD9F00D08732 /* MainViewController.swift */; };
+		474FE96A274DBD9F00D08732 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE969274DBD9F00D08732 /* MainTabViewController.swift */; };
 		474FE96D274DBFA100D08732 /* PostCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE96C274DBFA100D08732 /* PostCustomButton.swift */; };
 		474FE96F274DC4E900D08732 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE96E274DC4E900D08732 /* CustomLabel.swift */; };
 		474FE971274DC5BC00D08732 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE970274DC5BC00D08732 /* Constants.swift */; };
 		474FE973274DCAAD00D08732 /* FormSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE972274DCAAD00D08732 /* FormSheetViewController.swift */; };
 		474FE97527504E8A00D08732 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE97427504E8A00D08732 /* CustomView.swift */; };
 		474FE97727506FD200D08732 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE97627506FD200D08732 /* DividerView.swift */; };
+		474FE9792751A80A00D08732 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9782751A80A00D08732 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +57,14 @@
 		474FE957274DBBF900D08732 /* MyJobAppTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJobAppTrackerUITests.swift; sourceTree = "<group>"; };
 		474FE959274DBBF900D08732 /* MyJobAppTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJobAppTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		474FE967274DBD2400D08732 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		474FE969274DBD9F00D08732 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		474FE969274DBD9F00D08732 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		474FE96C274DBFA100D08732 /* PostCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCustomButton.swift; sourceTree = "<group>"; };
 		474FE96E274DC4E900D08732 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		474FE970274DC5BC00D08732 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		474FE972274DCAAD00D08732 /* FormSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSheetViewController.swift; sourceTree = "<group>"; };
 		474FE97427504E8A00D08732 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		474FE97627506FD200D08732 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		474FE9782751A80A00D08732 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		474FE92A274DBBF700D08732 = {
 			isa = PBXGroup;
 			children = (
+				474FE9782751A80A00D08732 /* HomeController.swift */,
 				474FE96B274DBF4B00D08732 /* Views */,
 				474FE966274DBD0B00D08732 /* Utils */,
 				474FE935274DBBF700D08732 /* MyJobAppTracker */,
@@ -121,7 +124,7 @@
 				474FE93F274DBBF900D08732 /* Assets.xcassets */,
 				474FE941274DBBF900D08732 /* LaunchScreen.storyboard */,
 				474FE944274DBBF900D08732 /* Info.plist */,
-				474FE969274DBD9F00D08732 /* MainViewController.swift */,
+				474FE969274DBD9F00D08732 /* MainTabViewController.swift */,
 				474FE972274DCAAD00D08732 /* FormSheetViewController.swift */,
 			);
 			path = MyJobAppTracker;
@@ -297,6 +300,7 @@
 			files = (
 				474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */,
 				474FE96F274DC4E900D08732 /* CustomLabel.swift in Sources */,
+				474FE9792751A80A00D08732 /* HomeController.swift in Sources */,
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
 				474FE97527504E8A00D08732 /* CustomView.swift in Sources */,
 				474FE97727506FD200D08732 /* DividerView.swift in Sources */,
@@ -304,7 +308,7 @@
 				474FE971274DC5BC00D08732 /* Constants.swift in Sources */,
 				474FE973274DCAAD00D08732 /* FormSheetViewController.swift in Sources */,
 				474FE968274DBD2400D08732 /* Extension.swift in Sources */,
-				474FE96A274DBD9F00D08732 /* MainViewController.swift in Sources */,
+				474FE96A274DBD9F00D08732 /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,13 @@
 //
-//  MainViewController.swift
+//  HomeController.swift
 //  MyJobAppTracker
 //
-//  Created by MICHAEL ADU DARKO on 11/23/21.
+//  Created by MICHAEL ADU DARKO on 11/26/21.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
+class HomeController: UIViewController{
     
     //MARK:- Properties
     
@@ -19,12 +19,6 @@ class MainViewController: UIViewController {
         iv.layer.borderColor = UIColor.white.cgColor
         iv.layer.borderWidth = 8
         return iv
-    }()
-    
-    private let postItemButton: PostCustomButton = {
-        let button = PostCustomButton()
-        button.addTarget(self, action: #selector(handlepostItemButton), for: .touchUpInside)
-        return button
     }()
     
     private let candidateName : CustomLabel = {
@@ -112,6 +106,7 @@ class MainViewController: UIViewController {
     //MARK:- Helpers
     
     private func configureUI(){
+        navigationController?.navigationBar.isHidden = true
         profileImageView.setDimensions(height: 135, width: 135)
         profileImageView.layer.cornerRadius = 135 / 2
         view.backgroundColor = .white
@@ -147,9 +142,5 @@ class MainViewController: UIViewController {
         backgroundView.addSubview(statusLabel)
         statusLabel.anchor(top: statusCountStackView.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 5, paddingLeft: 10,  paddingRight: 10)
 
-
-        view.addSubview(postItemButton)
-        postItemButton.anchor( bottom: view.safeAreaLayoutGuide.bottomAnchor,right: view.rightAnchor,
-                               paddingBottom: 20, paddingRight: 16)
     }
 }
