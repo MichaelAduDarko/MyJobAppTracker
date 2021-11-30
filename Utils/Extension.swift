@@ -76,17 +76,17 @@ extension UIView {
             anchor(left: left, paddingLeft: paddingLeft)
         }
     }
-        func setDimensions(height: CGFloat, width: CGFloat) {
+    func setDimensions(height: CGFloat, width: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+        heightAnchor.constraint(equalToConstant: height).isActive = true
+        
+    } 
+    
+    func checkIfAutoLayOut() {
+        if frame == .zero {
             translatesAutoresizingMaskIntoConstraints = false
-            widthAnchor.constraint(equalToConstant: width).isActive = true
-            heightAnchor.constraint(equalToConstant: height).isActive = true
-           
         }
-        
-        func checkIfAutoLayOut() {
-            if frame == .zero {
-                translatesAutoresizingMaskIntoConstraints = false
-            }
-        }
-        
     }
+    
+}

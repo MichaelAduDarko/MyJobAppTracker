@@ -42,7 +42,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         tabBar.backgroundColor = .white
     
         tabBar.backgroundColor = .systemGray6
-        UITabBar.appearance().barTintColor = UIColor.red
+    
         
         let home = HomeController()
         let nav1 = templateNavigationController(image: UIImage(systemName: "house.circle.fill"), rootviewController: home)

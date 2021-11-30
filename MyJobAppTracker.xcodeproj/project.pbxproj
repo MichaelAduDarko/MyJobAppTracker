@@ -24,6 +24,7 @@
 		474FE97527504E8A00D08732 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE97427504E8A00D08732 /* CustomView.swift */; };
 		474FE97727506FD200D08732 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE97627506FD200D08732 /* DividerView.swift */; };
 		474FE9792751A80A00D08732 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9782751A80A00D08732 /* HomeController.swift */; };
+		474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9832755911700D08732 /* ApplictaionsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		474FE97427504E8A00D08732 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		474FE97627506FD200D08732 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		474FE9782751A80A00D08732 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		474FE9832755911700D08732 /* ApplictaionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplictaionsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,7 @@
 		474FE92A274DBBF700D08732 = {
 			isa = PBXGroup;
 			children = (
-				474FE9782751A80A00D08732 /* HomeController.swift */,
+				474FE97A2752DE3900D08732 /* Controllers */,
 				474FE96B274DBF4B00D08732 /* Views */,
 				474FE966274DBD0B00D08732 /* Utils */,
 				474FE935274DBBF700D08732 /* MyJobAppTracker */,
@@ -163,8 +165,17 @@
 				474FE96E274DC4E900D08732 /* CustomLabel.swift */,
 				474FE97427504E8A00D08732 /* CustomView.swift */,
 				474FE97627506FD200D08732 /* DividerView.swift */,
+				474FE9832755911700D08732 /* ApplictaionsCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		474FE97A2752DE3900D08732 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				474FE9782751A80A00D08732 /* HomeController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 				474FE96F274DC4E900D08732 /* CustomLabel.swift in Sources */,
 				474FE9792751A80A00D08732 /* HomeController.swift in Sources */,
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
+				474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */,
 				474FE97527504E8A00D08732 /* CustomView.swift in Sources */,
 				474FE97727506FD200D08732 /* DividerView.swift in Sources */,
 				474FE96D274DBFA100D08732 /* PostCustomButton.swift in Sources */,
