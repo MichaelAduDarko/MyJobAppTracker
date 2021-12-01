@@ -48,32 +48,32 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         let nav1 = templateNavigationController(image: UIImage(systemName: "house.circle.fill"), rootviewController: home)
         nav1.title = "Home"
         
-        let wish = HomeController()
-        let nav6 = templateNavigationController(image: UIImage(systemName: "list.bullet.circle.fill"), rootviewController: wish)
-        nav6.tabBarItem.badgeValue = "8"
-        nav6.tabBarItem.badgeColor = .backgroundColor
-        nav6.title = "WishList"
+//        let wish = HomeController()
+//        let nav6 = templateNavigationController(image: UIImage(systemName: "list.bullet.circle.fill"), rootviewController: wish)
+//        nav6.tabBarItem.badgeValue = "8"
+//        nav6.tabBarItem.badgeColor = .backgroundColor
+//        nav6.title = "WishList"
     
 
-        let category = HomeController()
-        let nav2 = templateNavigationController(image: UIImage(systemName: "hourglass.circle.fill"), rootviewController: category)
+        let inProgress = HomeController()
+        let nav2 = templateNavigationController(image: UIImage(systemName: "hourglass.circle.fill"), rootviewController: inProgress)
         nav2.tabBarItem.badgeValue = "7"
         nav2.tabBarItem.badgeColor = .systemYellow
         nav2.title = "Inprogress"
  
 
-        let message = HomeController()
-        let nav4 = templateNavigationController(image: UIImage(systemName: "hands.sparkles.fill"), rootviewController: message)
-        nav4.tabBarItem.badgeValue = "4"
-        nav4.tabBarItem.badgeColor = .systemGreen
-        nav4.title = "Offer"
+        let offer = HomeController()
+        let nav3 = templateNavigationController(image: UIImage(systemName: "hands.sparkles.fill"), rootviewController: offer)
+        nav3.tabBarItem.badgeValue = "4"
+        nav3.tabBarItem.badgeColor = .systemGreen
+        nav3.title = "Offer"
 
         
         let rejection = HomeController()
-        let nav5 = templateNavigationController(image: UIImage(systemName: "hand.thumbsdown.fill"), rootviewController: rejection)
-        nav5.tabBarItem.badgeValue = "50"
-        nav5.tabBarItem.badgeColor = .systemPink
-        nav5.title = "Rejection"
+        let nav4 = templateNavigationController(image: UIImage(systemName: "hand.thumbsdown.fill"), rootviewController: rejection)
+        nav4.tabBarItem.badgeValue = "50"
+        nav4.tabBarItem.badgeColor = .systemPink
+        nav4.title = "Rejection"
 
         //        let profile = ProfileController(style: .insetGrouped)
 //        profile.delegate = self
@@ -82,7 +82,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
 //        nav5.title = "Profile"
 
         
-        viewControllers = [nav1,nav6, nav2, nav4, nav5]
+        viewControllers = [nav1, nav2, nav3, nav4]
         
         guard  let items = tabBar.items else { return}
         

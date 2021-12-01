@@ -26,9 +26,9 @@ class HomeController: UIViewController {
     private let profileButton: UIButton = {
         let button = UIButton()
         button.tintColor = .white
-        button.setDimensions(height: 50, width: 50)
-        button.imageView?.setDimensions(height: 30, width: 30)
-        button.layer.cornerRadius = 50 / 2
+        button.setDimensions(height: 40, width: 40)
+        button.imageView?.setDimensions(height: 40, width: 40)
+        button.layer.cornerRadius = 40 / 2
         button.backgroundColor = .gray
         button.setImage(UIImage(systemName: "person.circle"), for: .normal)
 //        button.layer.shadowColor = UIColor.black.cgColor
@@ -62,18 +62,18 @@ class HomeController: UIViewController {
     
     private let dividerView = DividerView()
     
-    private let wishListCount : CustomLabel = {
-        let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .backgroundColor)
-        label.text = "8"
-        return label
-    }()
+//    private let wishListCount : CustomLabel = {
+//        let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .backgroundColor)
+//        label.text = "8"
+//        return label
+//    }()
     
-    private let wishList : CustomLabel = {
-        let label =  CustomLabel( name: Font.AvenirNextBold, fontSize: 15 , color: .systemGray4)
-        label.text = "Wishlist"
-        return label
-    }()
-    
+//    private let wishList : CustomLabel = {
+//        let label =  CustomLabel( name: Font.AvenirNextBold, fontSize: 15 , color: .systemGray4)
+//        label.text = "Wishlist"
+//        return label
+//    }()
+//
     private let inProgressCount : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemYellow)
         label.text = "7"
@@ -114,7 +114,7 @@ class HomeController: UIViewController {
     private let backgroundView = Customview(color: .mainBlueTintColor)
     
     private let titleLabel: CustomLabel = {
-        let label =  CustomLabel( name: Font.Futura, fontSize: 20 , color: .gray)
+        let label =  CustomLabel( name: Font.Futura, fontSize: 20 , color: .black)
         label.text = "Applications"
         return label
     }()
@@ -185,7 +185,7 @@ class HomeController: UIViewController {
         backgroundView.addSubview(dividerView)
         dividerView.anchor(top: stackView.bottomAnchor, left: backgroundView.leftAnchor,right: backgroundView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingRight: 10)
         
-        let statusCountStackView = UIStackView(arrangedSubviews: [wishListCount,UIView(),inProgressCount,UIView(), offerCount, UIView(), rejectionCount])
+        let statusCountStackView = UIStackView(arrangedSubviews: [inProgressCount,UIView(), offerCount, UIView(), rejectionCount])
         statusCountStackView.axis = .horizontal
         statusCountStackView.distribution = .equalCentering
         
@@ -193,7 +193,7 @@ class HomeController: UIViewController {
         statusCountStackView.anchor(top: stackView.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 10, paddingLeft: 10,  paddingRight: 10)
         
         
-        let statusLabel = UIStackView(arrangedSubviews: [wishList,UIView(),inProgress,UIView(), offer, UIView(), rejection])
+        let statusLabel = UIStackView(arrangedSubviews: [inProgress,UIView(), offer, UIView(), rejection])
         statusLabel.axis = .horizontal
         statusLabel.distribution = .equalCentering
         
@@ -221,7 +221,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension HomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 10, height: 100)
+        return CGSize(width: view.frame.width - 10, height: 180)
     }
     
 }

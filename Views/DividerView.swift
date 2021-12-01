@@ -14,7 +14,7 @@ class DividerView: UIView {
         super.init(frame: frame)
         
         let divider = UIView()
-        divider.backgroundColor = UIColor(white: 1, alpha: 0.25)
+        divider.backgroundColor = UIColor(white: 1, alpha: 0.50)
         addSubview(divider)
         divider.centerY(inView: self)
         divider.anchor(left: leftAnchor, right: rightAnchor,
