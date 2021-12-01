@@ -11,6 +11,8 @@ private let reuseIdentifier = "cell"
 
 class HomeController: UIViewController {
     
+    lazy var data: [homeData] = dummyData._data
+    
     //MARK:- Properties
     
     fileprivate let collectionView: UICollectionView = {
@@ -31,10 +33,6 @@ class HomeController: UIViewController {
         button.layer.cornerRadius = 40 / 2
         button.backgroundColor = .gray
         button.setImage(UIImage(systemName: "person.circle"), for: .normal)
-//        button.layer.shadowColor = UIColor.black.cgColor
-//        button.layer.shadowOpacity = 1
-//        button.layer.shadowOffset = .zero
-//        button.layer.shadowRadius = 2
         return button
     }()
     
@@ -62,18 +60,7 @@ class HomeController: UIViewController {
     
     private let dividerView = DividerView()
     
-//    private let wishListCount : CustomLabel = {
-//        let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .backgroundColor)
-//        label.text = "8"
-//        return label
-//    }()
     
-//    private let wishList : CustomLabel = {
-//        let label =  CustomLabel( name: Font.AvenirNextBold, fontSize: 15 , color: .systemGray4)
-//        label.text = "Wishlist"
-//        return label
-//    }()
-//
     private let inProgressCount : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemYellow)
         label.text = "7"
@@ -208,12 +195,14 @@ class HomeController: UIViewController {
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return 5
+         return  data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ApplicationsCell
-        
+        cell.data = data[indexPath.row]
+        cell.index = indexPath
+        cell.delegate = self
         return cell
     }
 }
@@ -224,4 +213,13 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width - 10, height: 180)
     }
     
+}
+
+
+extension HomeController: DataCollectionProtocol {
+    
+    func deleteData(indx: Int) {
+        data.remove(at: indx)
+        collectionView.reloadData()
+    }
 }

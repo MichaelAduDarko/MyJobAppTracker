@@ -9,6 +9,18 @@ import Foundation
 
 import UIKit
 
+struct homeData {
+    let _companyName: String?
+    let _date : String?
+    let _jobTitle: String?
+    let _locationName: String?
+    let _link: String?
+}
+
+protocol DataCollectionProtocol {
+    func deleteData(indx: Int)
+}
+
 class ApplicationsCell: UICollectionViewCell {
     
     //MARK: - Properties
@@ -25,7 +37,7 @@ class ApplicationsCell: UICollectionViewCell {
         return label
     }()
     
-//    private let dividerView = DividerView()
+    //    private let dividerView = DividerView()
     
     private let jobPosition: CustomLabel = {
         let label = CustomLabel(name: Font.AvenirNextBold, fontSize: 16, color: .backgroundColor)
@@ -34,15 +46,16 @@ class ApplicationsCell: UICollectionViewCell {
     }()
     
     private let location: CustomLabel = {
-        let label = CustomLabel(name: Font.Futura, fontSize: 16, color: .backgroundColor)
+        let label = CustomLabel(name: Font.Futura, fontSize: 16, color: .lightGray)
         label.text = "New York"
         return label
     }()
     
     private let applicationURL: CustomLabel = {
         let label = CustomLabel(name: Font.AvenirNext, fontSize: 16, color: .blue)
-        label.text = "https://signon.ual.com/oamfed/idp/samlv20"
-        label.numberOfLines = 0
+        label.text = "https://ual-pro.taleo.net/careersection/10140/isi.ftl?job=EWR00003596&lang=en"
+        //        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -61,7 +74,7 @@ class ApplicationsCell: UICollectionViewCell {
         button.tintColor = .green
         return button
     }()
-   
+    
     
     private lazy var rejectionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -71,12 +84,72 @@ class ApplicationsCell: UICollectionViewCell {
         return button
     }()
     
+    private lazy var deleteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "trash.fill"), for: .normal)
+        button.setDimensions(height: 25, width: 25)
+        button.tintColor = .systemRed
+        return button
+    }()
+    
+    
+    var delegate: DataCollectionProtocol?
+    var index: IndexPath?
     
     override init(frame: CGRect) {
         super.init(frame: frame )
-       configureUI()
+        configureUI()
+        buttonTargets()
         
+        
+       
     }
+    
+    //MARK:- Button Action
+    
+    private func buttonTargets(){
+        
+        inProgressButton.addTarget(self, action: #selector(handleInprogressButton), for: .touchUpInside)
+        offerButton.addTarget(self, action: #selector(handleOfferButtonButton), for: .touchUpInside)
+        rejectionButton.addTarget(self, action: #selector(handleRejectionButtonButton), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(handleDeleteButtonButton), for: .touchUpInside)
+    }
+    
+    @objc func handleInprogressButton(){
+        inProgressButton.flash()
+        print("Button")
+    }
+    
+    @objc func handleOfferButtonButton(){
+        offerButton.flash()
+        print("Button")
+    }
+    
+    @objc func handleRejectionButtonButton(){
+        rejectionButton.flash()
+        print("Button")
+    }
+    
+    
+    @objc func handleDeleteButtonButton(){
+        deleteButton.shake()
+        delegate?.deleteData(indx: (index?.row)!)
+    }
+    
+    
+    var data: homeData? {
+        didSet {
+            guard  let data = data else {return}
+            companyName.text = data._companyName
+            date.text = data._date
+            location.text = data._locationName
+            jobPosition.text = data._jobTitle
+            applicationURL.text = data._link
+        }
+    }
+    
+    
+    //MARK:- Helpers
     
     private func configureUI(){
         backgroundColor = .white
@@ -87,21 +160,21 @@ class ApplicationsCell: UICollectionViewCell {
         layer.shadowRadius = 6
         
         
-        let topStackView = UIStackView(arrangedSubviews:[companyName,date])
-//        stackView.checkIfAutoLayOut()
+        let topStackView = UIStackView(arrangedSubviews:[companyName,date, deleteButton])
+        //        stackView.checkIfAutoLayOut()
         topStackView.axis = .horizontal
-        topStackView.spacing = 72
+        topStackView.spacing = 50
         
         addSubview(topStackView)
-        topStackView.anchor(top: topAnchor, left: leftAnchor,
-                            paddingTop: 18, paddingLeft: 8)
+        topStackView.anchor(top: topAnchor, left: leftAnchor,right: rightAnchor,
+                            paddingTop: 18, paddingLeft: 8, paddingRight: 8)
         
         let bottomStackView = UIStackView(arrangedSubviews: [jobPosition, location, applicationURL])
         bottomStackView.axis = .vertical
         bottomStackView.spacing = 3
         
         addSubview(bottomStackView)
-        bottomStackView.anchor(top: topStackView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 8)
+        bottomStackView.anchor(top: topStackView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 8, paddingRight: 8)
         
         let buttonStackView = UIStackView(arrangedSubviews: [inProgressButton,offerButton,rejectionButton])
         buttonStackView.axis = .horizontal
@@ -110,7 +183,7 @@ class ApplicationsCell: UICollectionViewCell {
         
         
         addSubview(buttonStackView)
-        buttonStackView.anchor(top: bottomStackView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 40,paddingBottom: 4,paddingRight: 40)
+        buttonStackView.anchor(top: bottomStackView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 40,paddingBottom: 3,paddingRight: 40)
     }
     
     required init?(coder: NSCoder) {

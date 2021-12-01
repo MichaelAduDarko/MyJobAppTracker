@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E6CDC2757CFD00000B373 /* DummyData.swift */; };
 		474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE936274DBBF700D08732 /* AppDelegate.swift */; };
 		474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE938274DBBF700D08732 /* SceneDelegate.swift */; };
 		474FE93E274DBBF700D08732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474FE93C274DBBF700D08732 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		471E6CDC2757CFD00000B373 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		474FE933274DBBF700D08732 /* MyJobAppTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyJobAppTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		474FE936274DBBF700D08732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		474FE938274DBBF700D08732 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,9 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		471E6CDB2757CFBA0000B373 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				471E6CDC2757CFD00000B373 /* DummyData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		474FE92A274DBBF700D08732 = {
 			isa = PBXGroup;
 			children = (
+				471E6CDB2757CFBA0000B373 /* Models */,
 				474FE97A2752DE3900D08732 /* Controllers */,
 				474FE96B274DBF4B00D08732 /* Views */,
 				474FE966274DBD0B00D08732 /* Utils */,
@@ -126,8 +137,6 @@
 				474FE93F274DBBF900D08732 /* Assets.xcassets */,
 				474FE941274DBBF900D08732 /* LaunchScreen.storyboard */,
 				474FE944274DBBF900D08732 /* Info.plist */,
-				474FE969274DBD9F00D08732 /* MainTabViewController.swift */,
-				474FE972274DCAAD00D08732 /* FormSheetViewController.swift */,
 			);
 			path = MyJobAppTracker;
 			sourceTree = "<group>";
@@ -173,6 +182,8 @@
 		474FE97A2752DE3900D08732 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				474FE969274DBD9F00D08732 /* MainTabViewController.swift */,
+				474FE972274DCAAD00D08732 /* FormSheetViewController.swift */,
 				474FE9782751A80A00D08732 /* HomeController.swift */,
 			);
 			path = Controllers;
@@ -320,6 +331,7 @@
 				474FE971274DC5BC00D08732 /* Constants.swift in Sources */,
 				474FE973274DCAAD00D08732 /* FormSheetViewController.swift in Sources */,
 				474FE968274DBD2400D08732 /* Extension.swift in Sources */,
+				471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */,
 				474FE96A274DBD9F00D08732 /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
