@@ -58,7 +58,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
 
         let inProgress = HomeController()
         let nav2 = templateNavigationController(image: UIImage(systemName: "hourglass.circle.fill"), rootviewController: inProgress)
-        nav2.tabBarItem.badgeValue = "7"
+//        nav2.tabBarItem.badgeValue = "7"
         nav2.tabBarItem.badgeColor = .systemYellow
         nav2.title = "Inprogress"
  

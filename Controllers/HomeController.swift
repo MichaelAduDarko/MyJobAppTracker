@@ -186,6 +186,13 @@ class HomeController: UIViewController {
         
         backgroundView.addSubview(statusLabel)
         statusLabel.anchor(top: statusCountStackView.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 5, paddingLeft: 10,  paddingRight: 10)
+        collectionView.alpha = 0
+        profileImageView.alpha = 0
+        
+        UIView.animate(withDuration: 2) {
+            self.collectionView.alpha = 1
+            self.profileImageView.alpha = 1
+        }
         
     }
 }
@@ -195,6 +202,12 @@ class HomeController: UIViewController {
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if data.count == 0 {
+            collectionView.setEmptyMessage("You have no data")
+        } else {
+            collectionView.restore()
+        }
          return  data.count
     }
     
@@ -204,6 +217,13 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.index = indexPath
         cell.delegate = self
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let categoryDetail = ApplicationDetailsController()
+        self.navigationController?.pushViewController(categoryDetail, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
@@ -221,5 +241,23 @@ extension HomeController: DataCollectionProtocol {
     func deleteData(indx: Int) {
         data.remove(at: indx)
         collectionView.reloadData()
+    }
+}
+
+
+extension UICollectionView {
+
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = CustomLabel(name: Font.Futura, fontSize: 30, color: .gray)
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.sizeToFit()
+
+        self.backgroundView = messageLabel;
+    }
+
+    func restore() {
+        self.backgroundView = nil
     }
 }
