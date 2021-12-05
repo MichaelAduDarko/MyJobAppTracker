@@ -34,6 +34,11 @@
 		47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E89275D3F72005B9BD8 /* CustomButton.swift */; };
 		47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */; };
 		47C74E8F275D43D3005B9BD8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */; };
+		47C74E91275D4A01005B9BD8 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E90275D4A01005B9BD8 /* notes.json */; };
+		47C74E94275D5118005B9BD8 /* NoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E93275D5118005B9BD8 /* NoData.json */; };
+		48D8B1A625D83814792F6CE1 /* Pods_MyJobAppTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C537A662E469CAF51A130A /* Pods_MyJobAppTracker.framework */; };
+		6019B8B4D0820C214DD9EFF8 /* Pods_MyJobAppTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */; };
+		945365FBD36648E172B97D7B /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92F10081F5013F30302E25A /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01BF2E2039AC8D93B7D8D447 /* Pods-MyJobAppTracker-MyJobAppTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTracker-MyJobAppTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyJobAppTracker-MyJobAppTrackerUITests/Pods-MyJobAppTracker-MyJobAppTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		01C0F49E85B7EF43BE37C05C /* Pods-MyJobAppTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-MyJobAppTrackerTests/Pods-MyJobAppTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		04C537A662E469CAF51A130A /* Pods_MyJobAppTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyJobAppTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09A6692EB1C978491949A587 /* Pods-MyJobAppTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTracker.debug.xcconfig"; path = "Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		471E6CDC2757CFD00000B373 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetailsController.swift; sourceTree = "<group>"; };
 		474AA97C275992C400E870C1 /* StackScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollView.swift; sourceTree = "<group>"; };
@@ -85,6 +94,13 @@
 		47C74E89275D3F72005B9BD8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDontHaveAccountButton.swift; sourceTree = "<group>"; };
 		47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		47C74E90275D4A01005B9BD8 /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
+		47C74E93275D5118005B9BD8 /* NoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoData.json; sourceTree = "<group>"; };
+		4873C1B3314E17F0BB0DBE24 /* Pods-MyJobAppTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTracker.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker.release.xcconfig"; sourceTree = "<group>"; };
+		8229116E6A4EC64D17689482 /* Pods-MyJobAppTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTrackerTests/Pods-MyJobAppTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyJobAppTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6AB4E27DC26B88E39B71354 /* Pods-MyJobAppTracker-MyJobAppTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTracker-MyJobAppTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTracker-MyJobAppTrackerUITests/Pods-MyJobAppTracker-MyJobAppTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E92F10081F5013F30302E25A /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D8B1A625D83814792F6CE1 /* Pods_MyJobAppTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6019B8B4D0820C214DD9EFF8 /* Pods_MyJobAppTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,12 +124,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945365FBD36648E172B97D7B /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41FA819B200C46F181D83E45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09A6692EB1C978491949A587 /* Pods-MyJobAppTracker.debug.xcconfig */,
+				4873C1B3314E17F0BB0DBE24 /* Pods-MyJobAppTracker.release.xcconfig */,
+				01BF2E2039AC8D93B7D8D447 /* Pods-MyJobAppTracker-MyJobAppTrackerUITests.debug.xcconfig */,
+				D6AB4E27DC26B88E39B71354 /* Pods-MyJobAppTracker-MyJobAppTrackerUITests.release.xcconfig */,
+				01C0F49E85B7EF43BE37C05C /* Pods-MyJobAppTrackerTests.debug.xcconfig */,
+				8229116E6A4EC64D17689482 /* Pods-MyJobAppTrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		471E6CDB2757CFBA0000B373 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +155,7 @@
 		474FE92A274DBBF700D08732 = {
 			isa = PBXGroup;
 			children = (
+				47C74E92275D5021005B9BD8 /* LottieFiles */,
 				47C74E8D275D43B1005B9BD8 /* ViewModel */,
 				471E6CDB2757CFBA0000B373 /* Models */,
 				474FE97A2752DE3900D08732 /* Controllers */,
@@ -132,6 +165,8 @@
 				474FE94C274DBBF900D08732 /* MyJobAppTrackerTests */,
 				474FE956274DBBF900D08732 /* MyJobAppTrackerUITests */,
 				474FE934274DBBF700D08732 /* Products */,
+				41FA819B200C46F181D83E45 /* Pods */,
+				DE51E3D0C9C790247A912613 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,6 +256,25 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		47C74E92275D5021005B9BD8 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				47C74E90275D4A01005B9BD8 /* notes.json */,
+				47C74E93275D5118005B9BD8 /* NoData.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		DE51E3D0C9C790247A912613 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04C537A662E469CAF51A130A /* Pods_MyJobAppTracker.framework */,
+				E92F10081F5013F30302E25A /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework */,
+				A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 474FE95D274DBBF900D08732 /* Build configuration list for PBXNativeTarget "MyJobAppTracker" */;
 			buildPhases = (
+				AEFAB1917DF891D5A13BBEE2 /* [CP] Check Pods Manifest.lock */,
 				474FE92F274DBBF700D08732 /* Sources */,
 				474FE930274DBBF700D08732 /* Frameworks */,
 				474FE931274DBBF700D08732 /* Resources */,
+				3937CB152512A4C072380495 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 474FE960274DBBF900D08732 /* Build configuration list for PBXNativeTarget "MyJobAppTrackerTests" */;
 			buildPhases = (
+				7145C1F14A89F1CF763B6BDB /* [CP] Check Pods Manifest.lock */,
 				474FE945274DBBF900D08732 /* Sources */,
 				474FE946274DBBF900D08732 /* Frameworks */,
 				474FE947274DBBF900D08732 /* Resources */,
@@ -263,9 +320,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 474FE963274DBBF900D08732 /* Build configuration list for PBXNativeTarget "MyJobAppTrackerUITests" */;
 			buildPhases = (
+				394795A5F021FCA5F8A6E97A /* [CP] Check Pods Manifest.lock */,
 				474FE94F274DBBF900D08732 /* Sources */,
 				474FE950274DBBF900D08732 /* Frameworks */,
 				474FE951274DBBF900D08732 /* Resources */,
+				FB78EE457FFF314D56175BDA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,6 +386,8 @@
 			files = (
 				474FE943274DBBF900D08732 /* LaunchScreen.storyboard in Resources */,
 				474FE940274DBBF900D08732 /* Assets.xcassets in Resources */,
+				47C74E94275D5118005B9BD8 /* NoData.json in Resources */,
+				47C74E91275D4A01005B9BD8 /* notes.json in Resources */,
 				474FE93E274DBBF700D08732 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +407,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3937CB152512A4C072380495 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		394795A5F021FCA5F8A6E97A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyJobAppTracker-MyJobAppTrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7145C1F14A89F1CF763B6BDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyJobAppTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AEFAB1917DF891D5A13BBEE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyJobAppTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB78EE457FFF314D56175BDA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyJobAppTracker-MyJobAppTrackerUITests/Pods-MyJobAppTracker-MyJobAppTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyJobAppTracker-MyJobAppTrackerUITests/Pods-MyJobAppTracker-MyJobAppTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyJobAppTracker-MyJobAppTrackerUITests/Pods-MyJobAppTracker-MyJobAppTrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		474FE92F274DBBF700D08732 /* Sources */ = {
@@ -546,6 +710,7 @@
 		};
 		474FE95E274DBBF900D08732 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09A6692EB1C978491949A587 /* Pods-MyJobAppTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -574,6 +739,7 @@
 		};
 		474FE95F274DBBF900D08732 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4873C1B3314E17F0BB0DBE24 /* Pods-MyJobAppTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -602,6 +768,7 @@
 		};
 		474FE961274DBBF900D08732 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01C0F49E85B7EF43BE37C05C /* Pods-MyJobAppTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -627,6 +794,7 @@
 		};
 		474FE962274DBBF900D08732 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8229116E6A4EC64D17689482 /* Pods-MyJobAppTrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -652,6 +820,7 @@
 		};
 		474FE964274DBBF900D08732 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01BF2E2039AC8D93B7D8D447 /* Pods-MyJobAppTracker-MyJobAppTrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -675,6 +844,7 @@
 		};
 		474FE965274DBBF900D08732 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6AB4E27DC26B88E39B71354 /* Pods-MyJobAppTracker-MyJobAppTrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

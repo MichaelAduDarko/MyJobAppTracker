@@ -21,7 +21,7 @@ struct Font {
 struct Constant {
     
     static let LogInLabel =  "Log In"
-    static let TitleLabel = "Welcome\nTo\nMyJobTracker"
+    static let TitleLabel = "Keep Track\nOf Your Job\nApplications"
     static let Email = "Email"
     static let Password = "Password"
     static let Login = "Log In"
@@ -29,4 +29,11 @@ struct Constant {
     static let RestPswd = " Reset"
     static let DontHaveAcc = "Don't have an account?"
     static let SignUp = "Sign Up "
+}
+
+
+struct LottieAnimation {
+    
+    static let notes = "notes"
+    static let noData = "NoData"
 }

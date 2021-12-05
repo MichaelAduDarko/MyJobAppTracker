@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 private let reuseIdentifier = "cell"
 
@@ -14,6 +15,8 @@ class HomeController: UIViewController {
     lazy var data: [homeData] = dummyData._data
     
     //MARK:- Properties
+    
+    private let animationView = AnimationView()
     
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -118,8 +121,12 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        configureUI()
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
     
     //MARK:- Selector
     
@@ -204,7 +211,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if data.count == 0 {
-            collectionView.setEmptyMessage("You have no data")
+            collectionView.setEmptyMessage()
         } else {
             collectionView.restore()
         }
@@ -247,14 +254,15 @@ extension HomeController: DataCollectionProtocol {
 
 extension UICollectionView {
 
-    func setEmptyMessage(_ message: String) {
-        let messageLabel = CustomLabel(name: Font.Futura, fontSize: 30, color: .gray)
-        messageLabel.text = message
-        messageLabel.numberOfLines = 0;
-        messageLabel.textAlignment = .center;
-        messageLabel.sizeToFit()
+    func setEmptyMessage() {
+        let messageLabel = AnimationView()
+        messageLabel.animation = Animation.named(LottieAnimation.noData)
+        messageLabel.loopMode = .loop
+        messageLabel.contentMode = .scaleAspectFit
+        messageLabel.animationSpeed = 0.5
+        messageLabel.play()
 
-        self.backgroundView = messageLabel;
+        self.backgroundView = messageLabel
     }
 
     func restore() {

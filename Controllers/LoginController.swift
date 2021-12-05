@@ -6,15 +6,17 @@
 //
 
 import UIKit
+import Lottie
 
 class LoginController: UIViewController, UITextFieldDelegate  {
     
     //MARK:- Properties
+    private let animationView = AnimationView()
     
     private var viewModel = LoginViewModel()
     
     private let titlelabel: CustomLabel = {
-        let label = CustomLabel( name: Font.Futura, fontSize: 30, color: .white)
+        let label = CustomLabel( name: Font.Futura, fontSize: 28, color: .white)
         label.text = Constant.TitleLabel
       return label
     }()
@@ -86,6 +88,9 @@ class LoginController: UIViewController, UITextFieldDelegate  {
         passwordTextField.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        animationView.play()
+    }
     
     //MARK:- Helpers
     
@@ -107,13 +112,26 @@ class LoginController: UIViewController, UITextFieldDelegate  {
     }
     
     private func configureUI(){
+        
+        animationView.animation = Animation.named(LottieAnimation.notes)
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFit
+        animationView.animationSpeed = 0.5
+        animationView.play()
+        
+        
         view.backgroundColor = .mainBlueTintColor
+        
+        view.addSubview(animationView)
+        animationView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                             left:  view.leftAnchor, right:  view.rightAnchor,
+                             paddingRight: -200, width: 200, height: 200)
         
         
         view.addSubview(titlelabel)
         titlelabel.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                           left: view.leftAnchor,
-                          paddingTop: 20, paddingLeft: 15)
+                          paddingTop: 10, paddingLeft: 10)
         
         view.addSubview(logInLabel)
         logInLabel.anchor(top: titlelabel.bottomAnchor,left: view.leftAnchor,
