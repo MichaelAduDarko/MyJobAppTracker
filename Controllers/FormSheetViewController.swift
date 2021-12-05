@@ -10,6 +10,7 @@ import UIKit
 class FormSheetViewController: UIViewController, UITextFieldDelegate {
     
     //MARK:- Properties
+    private let datePicker = UIDatePicker()
     
     private let backgroundView = Customview(color: .mainBlueTintColor)
     
@@ -98,6 +99,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         configureUI()
         tapOutsideToDimissKeyboard()
+        createDatePicker()
         Company.delegate = self
         jobLink.delegate = self
         date.delegate = self
@@ -126,6 +128,18 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         stackScrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
     }
     
+    @objc func donePressed() {
+        
+        //formatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        date.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    
     //MARK:- Button Actions
     
     private func buttonAction(){
@@ -151,7 +165,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         topStack.anchor(top: backgroundView.topAnchor, left: backgroundView.leftAnchor,right: backgroundView.rightAnchor , paddingTop: -20, paddingLeft: 10,paddingRight: 10)
         
         backgroundView.addSubview(titleLabel)
-        titleLabel.anchor(top: topStack.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: -5)
+        titleLabel.anchor(top: topStack.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: -10)
         
         stackScrollView.backgroundColor = .white
         view.addSubview(stackScrollView)
@@ -167,6 +181,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardwillhide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        datePicker.frame = CGRect(x: 10, y: 50, width: self.view.frame.width, height: 200)
     }
     
     func tapOutsideToDimissKeyboard(){
@@ -180,5 +195,18 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func createDatePicker(){
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: true)
+        date.inputAccessoryView = toolbar
+        date.inputView = datePicker
+        
+        datePicker.datePickerMode = .date
+    }
     
+   
 }

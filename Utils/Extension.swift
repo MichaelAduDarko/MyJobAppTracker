@@ -115,7 +115,7 @@ extension UIView {
     flash.toValue = 0.1
     flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     flash.autoreverses = true
-    flash.repeatCount = 2
+    flash.repeatCount = 1
     layer.add(flash, forKey: nil)
     }
     

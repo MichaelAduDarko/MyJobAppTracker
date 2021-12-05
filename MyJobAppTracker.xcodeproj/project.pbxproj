@@ -29,6 +29,11 @@
 		474FE97727506FD200D08732 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE97627506FD200D08732 /* DividerView.swift */; };
 		474FE9792751A80A00D08732 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9782751A80A00D08732 /* HomeController.swift */; };
 		474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9832755911700D08732 /* ApplictaionsCell.swift */; };
+		47C74E86275D3C82005B9BD8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E85275D3C82005B9BD8 /* LoginController.swift */; };
+		47C74E88275D3D59005B9BD8 /* CustomtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E87275D3D59005B9BD8 /* CustomtextField.swift */; };
+		47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E89275D3F72005B9BD8 /* CustomButton.swift */; };
+		47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */; };
+		47C74E8F275D43D3005B9BD8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		474FE97627506FD200D08732 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		474FE9782751A80A00D08732 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		474FE9832755911700D08732 /* ApplictaionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplictaionsCell.swift; sourceTree = "<group>"; };
+		47C74E85275D3C82005B9BD8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		47C74E87275D3D59005B9BD8 /* CustomtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomtextField.swift; sourceTree = "<group>"; };
+		47C74E89275D3F72005B9BD8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDontHaveAccountButton.swift; sourceTree = "<group>"; };
+		47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 		474FE92A274DBBF700D08732 = {
 			isa = PBXGroup;
 			children = (
+				47C74E8D275D43B1005B9BD8 /* ViewModel */,
 				471E6CDB2757CFBA0000B373 /* Models */,
 				474FE97A2752DE3900D08732 /* Controllers */,
 				474FE96B274DBF4B00D08732 /* Views */,
@@ -183,6 +194,9 @@
 				474FE9832755911700D08732 /* ApplictaionsCell.swift */,
 				474AA97C275992C400E870C1 /* StackScrollView.swift */,
 				474AA97E2759933700E870C1 /* FormTextField.swift */,
+				47C74E87275D3D59005B9BD8 /* CustomtextField.swift */,
+				47C74E89275D3F72005B9BD8 /* CustomButton.swift */,
+				47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,8 +208,17 @@
 				474FE972274DCAAD00D08732 /* FormSheetViewController.swift */,
 				474FE9782751A80A00D08732 /* HomeController.swift */,
 				474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */,
+				47C74E85275D3C82005B9BD8 /* LoginController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		47C74E8D275D43B1005B9BD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,16 +353,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */,
+				47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */,
 				474FE96F274DC4E900D08732 /* CustomLabel.swift in Sources */,
+				47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */,
 				474FE9792751A80A00D08732 /* HomeController.swift in Sources */,
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
 				474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */,
 				474FE97527504E8A00D08732 /* CustomView.swift in Sources */,
 				474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */,
+				47C74E8F275D43D3005B9BD8 /* AuthenticationViewModel.swift in Sources */,
 				474FE97727506FD200D08732 /* DividerView.swift in Sources */,
+				47C74E88275D3D59005B9BD8 /* CustomtextField.swift in Sources */,
 				474FE96D274DBFA100D08732 /* PostCustomButton.swift in Sources */,
 				474FE971274DC5BC00D08732 /* Constants.swift in Sources */,
 				474AA97B27584D9600E870C1 /* ApplicationDetailsController.swift in Sources */,
+				47C74E86275D3C82005B9BD8 /* LoginController.swift in Sources */,
 				474AA97F2759933700E870C1 /* FormTextField.swift in Sources */,
 				474FE973274DCAAD00D08732 /* FormSheetViewController.swift in Sources */,
 				474FE968274DBD2400D08732 /* Extension.swift in Sources */,
