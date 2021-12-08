@@ -29,6 +29,9 @@ struct Constant {
     static let RestPswd = " Reset"
     static let DontHaveAcc = "Don't have an account?"
     static let SignUp = "Sign Up "
+    static let AlreadyHaveAcc = "Already have an account?"
+    static let FullName = "Full Name"
+    static let JobTitle = "Job title"
 }
 
 

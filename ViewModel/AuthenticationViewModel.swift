@@ -18,7 +18,7 @@ struct LoginViewModel: AuthenticationViewModel {
     
     var formIsValid: Bool {
         return email?.isEmpty == false &&
-            password?.isEmpty == false
+        password?.isEmpty == false
     }
 }
 
@@ -26,12 +26,14 @@ struct LoginViewModel: AuthenticationViewModel {
 struct RegistrationViewModel: AuthenticationViewModel {
     var email: String?
     var fullname: String?
+    var jobTitle: String?
     var password: String?
     
     var formIsValid: Bool {
         return email?.isEmpty == false &&
-            password?.isEmpty == false &&
-            fullname?.isEmpty == false
+        password?.isEmpty == false &&
+        jobTitle?.isEmpty == false &&
+        fullname?.isEmpty == false
     }
 }
 

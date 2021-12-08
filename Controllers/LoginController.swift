@@ -66,7 +66,9 @@ class LoginController: UIViewController, UITextFieldDelegate  {
     }
     
     @objc func handleShowSignUp(){
-        print("Handle Sign Up Button")
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     @objc func textDidChange(sender: UITextField){

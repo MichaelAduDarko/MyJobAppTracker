@@ -36,6 +36,7 @@
 		47C74E8F275D43D3005B9BD8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */; };
 		47C74E91275D4A01005B9BD8 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E90275D4A01005B9BD8 /* notes.json */; };
 		47C74E94275D5118005B9BD8 /* NoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E93275D5118005B9BD8 /* NoData.json */; };
+		47C74E9627603AE0005B9BD8 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E9527603AE0005B9BD8 /* RegistrationController.swift */; };
 		48D8B1A625D83814792F6CE1 /* Pods_MyJobAppTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C537A662E469CAF51A130A /* Pods_MyJobAppTracker.framework */; };
 		6019B8B4D0820C214DD9EFF8 /* Pods_MyJobAppTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */; };
 		945365FBD36648E172B97D7B /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92F10081F5013F30302E25A /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework */; };
@@ -96,6 +97,7 @@
 		47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		47C74E90275D4A01005B9BD8 /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
 		47C74E93275D5118005B9BD8 /* NoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoData.json; sourceTree = "<group>"; };
+		47C74E9527603AE0005B9BD8 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		4873C1B3314E17F0BB0DBE24 /* Pods-MyJobAppTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTracker.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker.release.xcconfig"; sourceTree = "<group>"; };
 		8229116E6A4EC64D17689482 /* Pods-MyJobAppTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTrackerTests/Pods-MyJobAppTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyJobAppTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 				474FE9782751A80A00D08732 /* HomeController.swift */,
 				474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */,
 				47C74E85275D3C82005B9BD8 /* LoginController.swift */,
+				47C74E9527603AE0005B9BD8 /* RegistrationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */,
 				474FE9792751A80A00D08732 /* HomeController.swift in Sources */,
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
+				47C74E9627603AE0005B9BD8 /* RegistrationController.swift in Sources */,
 				474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */,
 				474FE97527504E8A00D08732 /* CustomView.swift in Sources */,
 				474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */,
