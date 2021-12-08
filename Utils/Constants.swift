@@ -17,6 +17,12 @@ struct Font {
     
 }
 
+struct ImageSystemName {
+    
+    static let ChevronLeft = "chevron.left"
+}
+
+
 
 struct Constant {
     
@@ -39,4 +45,5 @@ struct LottieAnimation {
     
     static let notes = "notes"
     static let noData = "NoData"
+    static let resetPassWrd = "ResetPasswords"
 }

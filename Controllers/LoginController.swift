@@ -62,7 +62,10 @@ class LoginController: UIViewController, UITextFieldDelegate  {
     }
     
     @objc func handleForgotPassword(){
-        print("Forget Button Tapped")
+        let controller = RessetPasswordController()
+        controller.email = emailTextfield.text
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func handleShowSignUp(){
@@ -169,5 +172,14 @@ class LoginController: UIViewController, UITextFieldDelegate  {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+
+//MARK:- ResetPasswordControllerDelegate
+
+extension LoginController: ResetPasswordControllerDelegate {
+    func didSendResetPasswordLink() {
+        navigationController?.popViewController(animated: true)
     }
 }

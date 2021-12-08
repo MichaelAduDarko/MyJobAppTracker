@@ -37,6 +37,8 @@
 		47C74E91275D4A01005B9BD8 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E90275D4A01005B9BD8 /* notes.json */; };
 		47C74E94275D5118005B9BD8 /* NoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E93275D5118005B9BD8 /* NoData.json */; };
 		47C74E9627603AE0005B9BD8 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E9527603AE0005B9BD8 /* RegistrationController.swift */; };
+		47C74E9827616DD3005B9BD8 /* RessetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E9727616DD3005B9BD8 /* RessetPasswordController.swift */; };
+		47C74E9A27617078005B9BD8 /* ResetPasswords.json in Resources */ = {isa = PBXBuildFile; fileRef = 47C74E9927617078005B9BD8 /* ResetPasswords.json */; };
 		48D8B1A625D83814792F6CE1 /* Pods_MyJobAppTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C537A662E469CAF51A130A /* Pods_MyJobAppTracker.framework */; };
 		6019B8B4D0820C214DD9EFF8 /* Pods_MyJobAppTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */; };
 		945365FBD36648E172B97D7B /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92F10081F5013F30302E25A /* Pods_MyJobAppTracker_MyJobAppTrackerUITests.framework */; };
@@ -98,6 +100,8 @@
 		47C74E90275D4A01005B9BD8 /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
 		47C74E93275D5118005B9BD8 /* NoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoData.json; sourceTree = "<group>"; };
 		47C74E9527603AE0005B9BD8 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		47C74E9727616DD3005B9BD8 /* RessetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RessetPasswordController.swift; sourceTree = "<group>"; };
+		47C74E9927617078005B9BD8 /* ResetPasswords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ResetPasswords.json; sourceTree = "<group>"; };
 		4873C1B3314E17F0BB0DBE24 /* Pods-MyJobAppTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTracker.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTracker/Pods-MyJobAppTracker.release.xcconfig"; sourceTree = "<group>"; };
 		8229116E6A4EC64D17689482 /* Pods-MyJobAppTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyJobAppTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-MyJobAppTrackerTests/Pods-MyJobAppTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		A20DCCA82CB373D6D5CC796C /* Pods_MyJobAppTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyJobAppTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +251,7 @@
 				474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */,
 				47C74E85275D3C82005B9BD8 /* LoginController.swift */,
 				47C74E9527603AE0005B9BD8 /* RegistrationController.swift */,
+				47C74E9727616DD3005B9BD8 /* RessetPasswordController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				47C74E90275D4A01005B9BD8 /* notes.json */,
+				47C74E9927617078005B9BD8 /* ResetPasswords.json */,
 				47C74E93275D5118005B9BD8 /* NoData.json */,
 			);
 			path = LottieFiles;
@@ -391,6 +397,7 @@
 				474FE940274DBBF900D08732 /* Assets.xcassets in Resources */,
 				47C74E94275D5118005B9BD8 /* NoData.json in Resources */,
 				47C74E91275D4A01005B9BD8 /* notes.json in Resources */,
+				47C74E9A27617078005B9BD8 /* ResetPasswords.json in Resources */,
 				474FE93E274DBBF700D08732 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +548,7 @@
 				474FE968274DBD2400D08732 /* Extension.swift in Sources */,
 				471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */,
 				474FE96A274DBD9F00D08732 /* MainTabViewController.swift in Sources */,
+				47C74E9827616DD3005B9BD8 /* RessetPasswordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
