@@ -46,4 +46,5 @@ struct LottieAnimation {
     static let notes = "notes"
     static let noData = "NoData"
     static let resetPassWrd = "ResetPasswords"
+    static let emptyState = "emptystate"
 }

@@ -28,16 +28,16 @@ class HomeController: UIViewController {
         return cv
     }()
     
-    private let profileButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .white
-        button.setDimensions(height: 40, width: 40)
-        button.imageView?.setDimensions(height: 40, width: 40)
-        button.layer.cornerRadius = 40 / 2
-        button.backgroundColor = .gray
-        button.setImage(UIImage(systemName: "person.circle"), for: .normal)
-        return button
-    }()
+//    private let profileButton: UIButton = {
+//        let button = UIButton()
+//        button.tintColor = .white
+//        button.setDimensions(height: 40, width: 40)
+//        button.imageView?.setDimensions(height: 40, width: 40)
+//        button.layer.cornerRadius = 40 / 2
+//        button.backgroundColor = .gray
+//        button.setImage(UIImage(systemName: "person.circle"), for: .normal)
+//        return button
+//    }()
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -154,8 +154,6 @@ class HomeController: UIViewController {
         backgroundView.addSubview(profileImageView)
         profileImageView.anchor(top: backgroundView.topAnchor, right: backgroundView.rightAnchor , paddingTop: -65, paddingRight: 10)
         
-        view.addSubview(profileButton)
-        profileButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: -25, paddingLeft: 10)
         
        
         
@@ -193,6 +191,7 @@ class HomeController: UIViewController {
         
         backgroundView.addSubview(statusLabel)
         statusLabel.anchor(top: statusCountStackView.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 5, paddingLeft: 10,  paddingRight: 10)
+        
         collectionView.alpha = 0
         profileImageView.alpha = 0
         
@@ -237,7 +236,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension HomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 10, height: 180)
+        return CGSize(width: view.frame.width - 10, height: 168)
     }
     
 }
@@ -251,12 +250,12 @@ extension HomeController: DataCollectionProtocol {
     }
 }
 
-
+//MRAK:- PlaceHolder for Empty CollectionView
 extension UICollectionView {
 
     func setEmptyMessage() {
         let messageLabel = AnimationView()
-        messageLabel.animation = Animation.named(LottieAnimation.noData)
+        messageLabel.animation = Animation.named(LottieAnimation.emptyState)
         messageLabel.loopMode = .loop
         messageLabel.contentMode = .scaleAspectFit
         messageLabel.animationSpeed = 0.5

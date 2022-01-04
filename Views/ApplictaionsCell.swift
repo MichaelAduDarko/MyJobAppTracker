@@ -51,13 +51,13 @@ class ApplicationsCell: UICollectionViewCell {
         return label
     }()
     
-    private let applicationURL: CustomLabel = {
-        let label = CustomLabel(name: Font.AvenirNext, fontSize: 16, color: .blue)
-        label.text = "https://ual-pro.taleo.net/careersection/10140/isi.ftl?job=EWR00003596&lang=en"
-        //        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        return label
-    }()
+//    private let applicationURL: CustomLabel = {
+//        let label = CustomLabel(name: Font.AvenirNext, fontSize: 16, color: .blue)
+//        label.text = "https://ual-pro.taleo.net/careersection/10140/isi.ftl?job=EWR00003596&lang=en"
+//        //        label.numberOfLines = 0
+//        label.lineBreakMode = .byWordWrapping
+//        return label
+//    }()
     
     private lazy var inProgressButton: UIButton = {
         let button = UIButton(type: .system)
@@ -144,7 +144,7 @@ class ApplicationsCell: UICollectionViewCell {
             date.text = data._date
             location.text = data._locationName
             jobPosition.text = data._jobTitle
-            applicationURL.text = data._link
+//            applicationURL.text = data._link
         }
     }
     
@@ -169,9 +169,9 @@ class ApplicationsCell: UICollectionViewCell {
         topStackView.anchor(top: topAnchor, left: leftAnchor,right: rightAnchor,
                             paddingTop: 18, paddingLeft: 8, paddingRight: 8)
         
-        let bottomStackView = UIStackView(arrangedSubviews: [jobPosition, location, applicationURL])
+        let bottomStackView = UIStackView(arrangedSubviews: [jobPosition, location])
         bottomStackView.axis = .vertical
-        bottomStackView.spacing = 3
+        bottomStackView.spacing = 4
         
         addSubview(bottomStackView)
         bottomStackView.anchor(top: topStackView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 8, paddingRight: 8)
@@ -183,7 +183,7 @@ class ApplicationsCell: UICollectionViewCell {
         
         
         addSubview(buttonStackView)
-        buttonStackView.anchor(top: bottomStackView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 40,paddingBottom: 3,paddingRight: 40)
+        buttonStackView.anchor(top: bottomStackView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, right: rightAnchor, paddingTop: 3, paddingLeft: 40,paddingBottom:1 ,paddingRight: 40)
     }
     
     required init?(coder: NSCoder) {

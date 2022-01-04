@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 extension UIColor {
     static func rgb(red:CGFloat, green: CGFloat, blue:CGFloat) -> UIColor{
@@ -119,4 +120,29 @@ extension UIView {
     layer.add(flash, forKey: nil)
     }
     
+}
+
+
+extension UIViewController {
+    
+        static let hub = JGProgressHUD(style: .light)
+        
+        
+        func showLoader(_ show: Bool, withText text: String? = "Loading"){
+            view.endEditing(true)
+            UIViewController.hub.textLabel.text = text
+            
+            if show {
+                UIViewController.hub.show(in: view)
+            } else {
+                UIViewController.hub.dismiss()
+            }
+        }
+        
+        func showError(_ errorMessage: String){
+            let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+        }
 }

@@ -7,6 +7,8 @@
 
 import UIKit
 import Lottie
+import Firebase
+import SCLAlertView
 
 class LoginController: UIViewController, UITextFieldDelegate  {
     
@@ -58,7 +60,21 @@ class LoginController: UIViewController, UITextFieldDelegate  {
     }
     
     @objc func handleLogin(){
-        print("Login .....")
+        
+            guard let email = emailTextfield.text else { return}
+            guard let password = passwordTextField.text  else { return}
+            
+            showLoader(true, withText: "Loggin In")
+            
+            AuthService.shared.logUserIn(withEmail: email, password: password) { (result, error) in
+                if let error = error {
+                    self.showLoader(false)
+                    SCLAlertView().showError("error", subTitle: error.localizedDescription)
+                    return
+                    
+                } 
+                self.dismiss(animated: true, completion: nil)
+            }
     }
     
     @objc func handleForgotPassword(){
@@ -158,6 +174,18 @@ class LoginController: UIViewController, UITextFieldDelegate  {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor,
                                      right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
+        
+        animationView.alpha = 0
+        loginButton.alpha = 0
+        emailTextfield.alpha = 0
+        passwordTextField.alpha = 0
+        
+        UIView.animate(withDuration: 2) {
+            self.animationView.alpha = 1
+            self.loginButton.alpha = 1
+            self.emailTextfield.alpha = 1
+            self.passwordTextField.alpha = 1
+        }
         
     }
     

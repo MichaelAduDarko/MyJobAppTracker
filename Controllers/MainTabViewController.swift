@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabViewController: UITabBarController, UINavigationControllerDelegate  {
    
@@ -21,7 +22,9 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       configureUI()
+        configureUI()
+        checkIfUserLoggedIn()
+        logout()
     }
     
     
@@ -34,6 +37,30 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         self.present(nav, animated: true, completion: nil)
         print("Button Tapped")
         
+    }
+    
+    
+    //MARK:- API
+    
+    func checkIfUserLoggedIn(){
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let controller = LoginController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
+    func logout(){
+        do{
+            try Auth.auth().signOut()
+
+        }  catch {
+            
+        }
     }
     
     //MARK:- Helpers
@@ -65,16 +92,19 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
 
         let offer = HomeController()
         let nav3 = templateNavigationController(image: UIImage(systemName: "hands.sparkles.fill"), rootviewController: offer)
-        nav3.tabBarItem.badgeValue = "4"
         nav3.tabBarItem.badgeColor = .systemGreen
         nav3.title = "Offer"
 
         
         let rejection = HomeController()
         let nav4 = templateNavigationController(image: UIImage(systemName: "hand.thumbsdown.fill"), rootviewController: rejection)
-        nav4.tabBarItem.badgeValue = "50"
         nav4.tabBarItem.badgeColor = .systemPink
         nav4.title = "Rejection"
+
+        let more = HomeController()
+        let nav5 = templateNavigationController(image: UIImage(systemName: "ellipsis"), rootviewController: more)
+        nav5.tabBarItem.badgeColor = .systemPink
+        nav5.title = "More"
 
         //        let profile = ProfileController(style: .insetGrouped)
 //        profile.delegate = self
@@ -83,7 +113,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
 //        nav5.title = "Profile"
 
         
-        viewControllers = [nav1, nav2, nav3, nav4]
+        viewControllers = [nav1, nav2, nav3, nav4,nav5]
         
         guard  let items = tabBar.items else { return}
         

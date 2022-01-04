@@ -139,6 +139,12 @@ class RessetPasswordController: UIViewController , UITextFieldDelegate {
                          right: view.rightAnchor, paddingTop: 15,
                          paddingLeft: 30, paddingRight: 30)
         
+        animationView.alpha = 0
+        
+        UIView.animate(withDuration: 2) {
+            self.animationView.alpha = 1
+        }
+        
     }
     
     func loadEmail(){

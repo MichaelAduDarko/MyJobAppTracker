@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import Firebase
+import JGProgressHUD
+import SCLAlertView
+import SDWebImage
+
 
 class RegistrationController: UIViewController, UITextFieldDelegate {
     
@@ -23,7 +28,7 @@ class RegistrationController: UIViewController, UITextFieldDelegate {
         button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
         button.tintColor = .backgroundColor
         button.addTarget(self, action: #selector(handleAddProfilePhoto), for: .touchUpInside)
-        button.imageView?.contentMode = .scaleToFill
+        button.imageView?.contentMode = .scaleAspectFill
         button.clipsToBounds = true
         button.imageView?.clipsToBounds = true
         return button
@@ -61,28 +66,27 @@ class RegistrationController: UIViewController, UITextFieldDelegate {
     
     
     @objc func handleSignUp(){
-//        guard let  email = emailTextfield.text else { return}
-//        guard let fullname = fullNameTextfield.text else {return }
-//        guard let password = passwordTextField.text else { return }
-//        guard let profileImage = profileImage else { return }
-//
-//        showLoader(true, withText: "Signing Up")
-//
-//        let credentilas = RegistrationCredentials(email: email, fullName: fullname, password: password, profileImage: profileImage)
-//
-//
-//        AuthService.shared.createUser(credentials: credentilas) { (error) in
-//            self.showLoader(false)
-//            if let error = error {
-//                SCLAlertView().showError("error", subTitle: error.localizedDescription)
-//                return
-//
-//            } else {
-//                DispatchQueue.main.async {
-//                    SceneDelegate.routeToRootViewController()
-//                }
-//            }
-//        }
+        guard let  email = emailTextfield.text else { return}
+        guard let fullname = fullNameTextfield.text else {return }
+        guard let jobTitle = jobTitleTextfield.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let profileImage = self.profileImage else { return }
+
+        showLoader(true, withText: "Signing Up")
+
+        let credentilas = RegistrationCredentials(email: email, fullName: fullname,password: password, jobTitle: jobTitle, profileImage: profileImage)
+
+
+        AuthService.shared.createUser(credentials: credentilas) { (error) in
+            self.showLoader(false)
+            if let error = error {
+                SCLAlertView().showError("error", subTitle: error.localizedDescription)
+                print("debug: \(error.localizedDescription)")
+                return
+
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func handleShowLogin(){
@@ -197,6 +201,6 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.layer.borderWidth = 3.0
         plusPhotoButton.layer.cornerRadius = 200 / 2
         
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

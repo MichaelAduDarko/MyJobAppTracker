@@ -7,6 +7,16 @@ target 'MyJobAppTracker' do
 
    pod 'lottie-ios'
 
+   pod 'JGProgressHUD','~>2.0.3'
+
+   pod 'Firebase/Core'
+   pod 'Firebase/Storage'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Firestore'
+ 
+   pod 'SDWebImage','~>4.4.2'
+   pod 'SCLAlertView'
+
   target 'MyJobAppTrackerTests' do
     inherit! :search_paths
     # Pods for testing
