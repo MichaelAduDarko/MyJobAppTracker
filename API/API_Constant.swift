@@ -7,6 +7,9 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 let COLLECTION_USERS = Firestore.firestore().collection("users")
+
+let REF_POSTITEM  = Firestore.firestore().collection("items")
 

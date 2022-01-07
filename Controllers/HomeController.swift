@@ -7,12 +7,19 @@
 
 import UIKit
 import Lottie
+import Firebase
+import SDWebImage
 
 private let reuseIdentifier = "cell"
 
 class HomeController: UIViewController {
     
-    lazy var data: [homeData] = dummyData._data
+    private var posts = [Item]()
+    
+    
+    var users : User? {
+        didSet { populateUserData()}
+    }
     
     //MARK:- Properties
     
@@ -28,21 +35,30 @@ class HomeController: UIViewController {
         return cv
     }()
     
-//    private let profileButton: UIButton = {
-//        let button = UIButton()
-//        button.tintColor = .white
-//        button.setDimensions(height: 40, width: 40)
-//        button.imageView?.setDimensions(height: 40, width: 40)
-//        button.layer.cornerRadius = 40 / 2
-//        button.backgroundColor = .gray
-//        button.setImage(UIImage(systemName: "person.circle"), for: .normal)
-//        return button
-//    }()
+    
+    private let logOutButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .white
+        button.setDimensions(height: 50, width: 50)
+        button.imageView?.setDimensions(height: 26, width: 26)
+        button.layer.cornerRadius = 50 / 2
+        button.backgroundColor = .systemRed
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 2
+        button.layer.shadowOpacity = 1
+        button.layer.shadowOffset = .zero
+        button.layer.shadowRadius = 1
+        button.addTarget(self, action: #selector(handleLogOut), for: .touchUpInside)
+        return button
+    }()
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
-        iv.image = #imageLiteral(resourceName: "Mikke")
+//        iv.image = #imageLiteral(resourceName: "Mikke")
+//        iv.backgroundColor = .gray
         iv.contentMode = .scaleAspectFill
         iv.layer.borderColor = UIColor.white.cgColor
         iv.layer.borderWidth = 8
@@ -51,13 +67,13 @@ class HomeController: UIViewController {
     
     private let candidateName : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 20 , color: .white)
-        label.text = "Michael Adu Darko "
+//        label.text = "Michael Adu Darko "
         return label
     }()
     
     private let jobTitle : CustomLabel = {
         let label =  CustomLabel( name: Font.AvenirNext, fontSize: 18 , color: .white)
-        label.text = "iOS Developer"
+//        label.text = "iOS Developer"
         return label
     }()
     
@@ -100,7 +116,7 @@ class HomeController: UIViewController {
         return label
     }()
     
-
+    
     private let backgroundView = Customview(color: .mainBlueTintColor)
     
     private let titleLabel: CustomLabel = {
@@ -109,7 +125,7 @@ class HomeController: UIViewController {
         return label
     }()
     
-
+    
     var items: [String] = {
         var items = [String]()
         for i in 1 ..< 20 {
@@ -120,25 +136,79 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       configureUI()
+        populateUserData()
+        configureUI()
+  
+       postUserData()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        
     }
     
     //MARK:- Selector
     
     @objc func handlepostItemButton(){
-  
+        
         let nav = UINavigationController(rootViewController: FormSheetViewController())
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
         print("Button Tapped")
         
     }
+    
+    
+    @objc func handleLogOut(){
+        do{
+            try Auth.auth().signOut()
+            DispatchQueue.main.async { SceneDelegate.routeToRootViewController() }
+        }  catch {
+            
+        }
+        
+    }
+    
+    //MARK:- Selectors
+    @objc func handleRefresher(){
+        posts.removeAll()
+        postUserData()
+    }
+    
+    //MARK: - API
+    func populateUserData(){
+        
+        UserService.fetchUser { user in
+            DispatchQueue.main.async {
+                self.users  = user
+                self.candidateName.text = user.fullname
+                self.jobTitle.text = user.jobTitle
 
+                let url = URL(string: user.profileImageUrl)
+                self.profileImageView.sd_setImage(with: url)
+            }
+           
+
+//            self.profileImageView.text = user.profileImageUrl
+        }
+        
+           
+//            self.profileImageView.sd_setImage(with: URL(string: user.profileImageUrl))
+     
+    }
+    
+    //MARK:- API
+    
+    func postUserData(){
+        PostService.fetchPost { posts in
+            self.posts = posts
+            self.collectionView.refreshControl?.endRefreshing()
+            self.collectionView.reloadData()
+        }
+        
+    }
+    
+    
     //MARK:- Helpers
     
     private func configureUI(){
@@ -155,10 +225,13 @@ class HomeController: UIViewController {
         profileImageView.anchor(top: backgroundView.topAnchor, right: backgroundView.rightAnchor , paddingTop: -65, paddingRight: 10)
         
         
-       
+        
         
         view.addSubview(backgroundView)
-        backgroundView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 5,paddingRight: 5, width: 250, height: 150)
+        backgroundView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 60, paddingLeft: 5,paddingRight: 5, width: 250, height: 150)
+        
+        view.addSubview(logOutButton)
+        logOutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor , left: view.leftAnchor, paddingLeft: 5)
         
         view.addSubview(titleLabel)
         titleLabel.anchor(top: backgroundView.bottomAnchor, left: view.leftAnchor,  paddingTop: 10, paddingLeft: 5)
@@ -166,7 +239,7 @@ class HomeController: UIViewController {
         view.addSubview(collectionView)
         collectionView.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
-
+        
         let stackView = UIStackView(arrangedSubviews: [candidateName, jobTitle])
         stackView.spacing = 10
         stackView.axis = .vertical
@@ -192,6 +265,10 @@ class HomeController: UIViewController {
         backgroundView.addSubview(statusLabel)
         statusLabel.anchor(top: statusCountStackView.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 5, paddingLeft: 10,  paddingRight: 10)
         
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresher), for: .valueChanged)
+        collectionView.refreshControl = refresher
+        
         collectionView.alpha = 0
         profileImageView.alpha = 0
         
@@ -209,20 +286,20 @@ class HomeController: UIViewController {
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if data.count == 0 {
+        if posts.count == 0 {
             collectionView.setEmptyMessage()
         } else {
             collectionView.restore()
         }
-         return  data.count
+        return  posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ApplicationsCell
-        cell.data = data[indexPath.row]
-        cell.index = indexPath
-        cell.delegate = self
+        let item = posts[indexPath.row]
+        cell.update(with: item)
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -245,14 +322,14 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 extension HomeController: DataCollectionProtocol {
     
     func deleteData(indx: Int) {
-        data.remove(at: indx)
+        items.remove(at: indx)
         collectionView.reloadData()
     }
 }
 
 //MRAK:- PlaceHolder for Empty CollectionView
 extension UICollectionView {
-
+    
     func setEmptyMessage() {
         let messageLabel = AnimationView()
         messageLabel.animation = Animation.named(LottieAnimation.emptyState)
@@ -260,10 +337,10 @@ extension UICollectionView {
         messageLabel.contentMode = .scaleAspectFit
         messageLabel.animationSpeed = 0.5
         messageLabel.play()
-
+        
         self.backgroundView = messageLabel
     }
-
+    
     func restore() {
         self.backgroundView = nil
     }

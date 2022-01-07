@@ -26,14 +26,14 @@ class ApplicationsCell: UICollectionViewCell {
     //MARK: - Properties
     
     private let companyName: CustomLabel = {
-        let label = CustomLabel(name: Font.Futura, fontSize: 19, color: .backgroundColor)
-        label.text = "Microsoft"
+        let label = CustomLabel(name: Font.Futura, fontSize: 20, color: .backgroundColor)
+//        label.text = "Microsoft"
         return label
     }()
     
     private let date: CustomLabel = {
-        let label = CustomLabel(name: Font.AvenirNext, fontSize: 14, color: .gray)
-        label.text = "November 30th 2021"
+        let label = CustomLabel(name: Font.AvenirNextBold, fontSize: 16, color: .gray)
+//        label.text = "November 30th 2021"
         return label
     }()
     
@@ -41,23 +41,23 @@ class ApplicationsCell: UICollectionViewCell {
     
     private let jobPosition: CustomLabel = {
         let label = CustomLabel(name: Font.AvenirNextBold, fontSize: 16, color: .backgroundColor)
-        label.text = "Jnr iOS Engineer"
+//        label.text = "Jnr iOS Engineer"
         return label
     }()
     
     private let location: CustomLabel = {
         let label = CustomLabel(name: Font.Futura, fontSize: 16, color: .lightGray)
-        label.text = "New York"
+//        label.text = "New York"
         return label
     }()
     
-//    private let applicationURL: CustomLabel = {
-//        let label = CustomLabel(name: Font.AvenirNext, fontSize: 16, color: .blue)
-//        label.text = "https://ual-pro.taleo.net/careersection/10140/isi.ftl?job=EWR00003596&lang=en"
-//        //        label.numberOfLines = 0
-//        label.lineBreakMode = .byWordWrapping
-//        return label
-//    }()
+    private let applicationURL: CustomLabel = {
+        let label = CustomLabel(name: Font.AvenirNext, fontSize: 16, color: .blue)
+        label.text = "https://ual-pro.taleo.net/careersection/10140/isi.ftl?job=EWR00003596&lang=en"
+        //        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
     
     private lazy var inProgressButton: UIButton = {
         let button = UIButton(type: .system)
@@ -144,8 +144,17 @@ class ApplicationsCell: UICollectionViewCell {
             date.text = data._date
             location.text = data._locationName
             jobPosition.text = data._jobTitle
-//            applicationURL.text = data._link
+            applicationURL.text = data._link
         }
+    }
+    
+    func update(with item: Item) {
+        companyName.text = item.companyName
+        location.text = item.location
+        jobPosition.text = item.jobTitle
+        date.text = item.date
+        applicationURL.text = item.applicationURL
+       
     }
     
     

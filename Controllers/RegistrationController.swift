@@ -71,21 +71,24 @@ class RegistrationController: UIViewController, UITextFieldDelegate {
         guard let jobTitle = jobTitleTextfield.text else { return }
         guard let password = passwordTextField.text else { return }
         guard let profileImage = self.profileImage else { return }
-
+        
         showLoader(true, withText: "Signing Up")
-
+        
         let credentilas = RegistrationCredentials(email: email, fullName: fullname,password: password, jobTitle: jobTitle, profileImage: profileImage)
-
-
+        
+        
         AuthService.shared.createUser(credentials: credentilas) { (error) in
             self.showLoader(false)
             if let error = error {
                 SCLAlertView().showError("error", subTitle: error.localizedDescription)
-                print("debug: \(error.localizedDescription)")
                 return
-
+                
+            } else {
+                DispatchQueue.main.async {
+                    SceneDelegate.routeToRootViewController()
+                }
+                
             }
-            self.dismiss(animated: true, completion: nil)
         }
     }
     

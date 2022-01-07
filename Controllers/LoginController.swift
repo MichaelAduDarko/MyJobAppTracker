@@ -72,8 +72,11 @@ class LoginController: UIViewController, UITextFieldDelegate  {
                     SCLAlertView().showError("error", subTitle: error.localizedDescription)
                     return
                     
-                } 
-                self.dismiss(animated: true, completion: nil)
+                } else {
+                    DispatchQueue.main.async {
+                        SceneDelegate.routeToRootViewController()
+                    }
+                }
             }
     }
     

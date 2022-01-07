@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import SCLAlertView
 
 class FormSheetViewController: UIViewController, UITextFieldDelegate {
     
@@ -139,11 +141,34 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    @objc func handleDoneButton(){
+        guard let company = Company.text else { return }
+        guard let jobtitle = jobTitle.text else { return }
+        guard let date = date.text else { return }
+        guard let location = location.text else { return }
+        guard let url = jobLink.text else { return }
+        
+        showLoader(true, withText: "Loading...")
+        
+        PostService.uploadItem(jobTitle: jobtitle, date: date, companyName: company, location: location, applicationURL: url) { error in
+            
+            print("Debug: Success")
+            if let  error = error {
+                self.showLoader(false)
+                SCLAlertView().showError(error.localizedDescription)
+                return
+            }
+            self.showLoader(false)
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
     //MARK:- Button Actions
     
     private func buttonAction(){
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
     }
     
     //MARK:- Helpers

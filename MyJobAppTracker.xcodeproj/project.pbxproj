@@ -16,6 +16,15 @@
 		4715A68F2783EA7E001E6B44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4715A68E2783EA7E001E6B44 /* GoogleService-Info.plist */; };
 		4715A6902783EA7E001E6B44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4715A68E2783EA7E001E6B44 /* GoogleService-Info.plist */; };
 		4715A6912783EA7E001E6B44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4715A68E2783EA7E001E6B44 /* GoogleService-Info.plist */; };
+		4715A69327852943001E6B44 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69227852943001E6B44 /* ProfileViewModel.swift */; };
+		4715A69427852943001E6B44 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69227852943001E6B44 /* ProfileViewModel.swift */; };
+		4715A69527852943001E6B44 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69227852943001E6B44 /* ProfileViewModel.swift */; };
+		4715A69727866E6E001E6B44 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69627866E6E001E6B44 /* PostService.swift */; };
+		4715A69827866E6E001E6B44 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69627866E6E001E6B44 /* PostService.swift */; };
+		4715A69927866E6E001E6B44 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69627866E6E001E6B44 /* PostService.swift */; };
+		4715A69B27866F97001E6B44 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69A27866F97001E6B44 /* Item.swift */; };
+		4715A69C27866F97001E6B44 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69A27866F97001E6B44 /* Item.swift */; };
+		4715A69D27866F97001E6B44 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69A27866F97001E6B44 /* Item.swift */; };
 		471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E6CDC2757CFD00000B373 /* DummyData.swift */; };
 		474AA97B27584D9600E870C1 /* ApplicationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */; };
 		474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97C275992C400E870C1 /* StackScrollView.swift */; };
@@ -82,6 +91,9 @@
 		4715A6882783D847001E6B44 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		4715A68A2783E618001E6B44 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4715A68E2783EA7E001E6B44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4715A69227852943001E6B44 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		4715A69627866E6E001E6B44 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		4715A69A27866F97001E6B44 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		471E6CDC2757CFD00000B373 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetailsController.swift; sourceTree = "<group>"; };
 		474AA97C275992C400E870C1 /* StackScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollView.swift; sourceTree = "<group>"; };
@@ -173,6 +185,7 @@
 				4715A6862783D6E5001E6B44 /* API_Constant.swift */,
 				4715A6882783D847001E6B44 /* ImageUploader.swift */,
 				4715A68A2783E618001E6B44 /* UserService.swift */,
+				4715A69627866E6E001E6B44 /* PostService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -182,6 +195,7 @@
 			children = (
 				471E6CDC2757CFD00000B373 /* DummyData.swift */,
 				4715A6842783D623001E6B44 /* User.swift */,
+				4715A69A27866F97001E6B44 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */,
+				4715A69227852943001E6B44 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -563,9 +578,11 @@
 			files = (
 				4715A68B2783E618001E6B44 /* UserService.swift in Sources */,
 				474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */,
+				4715A69327852943001E6B44 /* ProfileViewModel.swift in Sources */,
 				47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */,
 				474FE96F274DC4E900D08732 /* CustomLabel.swift in Sources */,
 				4715A6852783D623001E6B44 /* User.swift in Sources */,
+				4715A69B27866F97001E6B44 /* Item.swift in Sources */,
 				47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */,
 				474FE9792751A80A00D08732 /* HomeController.swift in Sources */,
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
@@ -585,6 +602,7 @@
 				474AA97F2759933700E870C1 /* FormTextField.swift in Sources */,
 				474FE973274DCAAD00D08732 /* FormSheetViewController.swift in Sources */,
 				474FE968274DBD2400D08732 /* Extension.swift in Sources */,
+				4715A69727866E6E001E6B44 /* PostService.swift in Sources */,
 				4715A6892783D847001E6B44 /* ImageUploader.swift in Sources */,
 				471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */,
 				474FE96A274DBD9F00D08732 /* MainTabViewController.swift in Sources */,
@@ -596,6 +614,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4715A69C27866F97001E6B44 /* Item.swift in Sources */,
+				4715A69427852943001E6B44 /* ProfileViewModel.swift in Sources */,
+				4715A69827866E6E001E6B44 /* PostService.swift in Sources */,
 				474FE94E274DBBF900D08732 /* MyJobAppTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,8 +625,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4715A69D27866F97001E6B44 /* Item.swift in Sources */,
+				4715A69527852943001E6B44 /* ProfileViewModel.swift in Sources */,
 				474FE958274DBBF900D08732 /* MyJobAppTrackerUITests.swift in Sources */,
 				474FE95A274DBBF900D08732 /* MyJobAppTrackerUITestsLaunchTests.swift in Sources */,
+				4715A69927866E6E001E6B44 /* PostService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

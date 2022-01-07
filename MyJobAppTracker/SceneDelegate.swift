@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,10 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _scene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: _scene)
-        let nav = UINavigationController(rootViewController: MainTabViewController())
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
+       
+        configure(with: _scene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,3 +50,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    private func configure(with windowScene: UIWindowScene) {
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = SceneDelegate.rootViewController()
+        window?.makeKeyAndVisible()
+    }
+
+    private static func rootViewController() -> UIViewController {
+        guard Auth.auth().currentUser?.uid == nil else { return MainTabViewController() }
+
+        let controller = LoginController()
+        let navigationController = UINavigationController(rootViewController: controller)
+        return navigationController
+    }
+}
+
+extension SceneDelegate {
+    static func routeToRootViewController() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let rootViewController = SceneDelegate.rootViewController()
+        sceneDelegate.window?.rootViewController = rootViewController
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+}

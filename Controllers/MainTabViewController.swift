@@ -24,7 +24,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         super.viewDidLoad()
         configureUI()
         checkIfUserLoggedIn()
-        logout()
+
     }
     
     
@@ -53,15 +53,6 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         }
     }
     
-    
-    func logout(){
-        do{
-            try Auth.auth().signOut()
-
-        }  catch {
-            
-        }
-    }
     
     //MARK:- Helpers
     
