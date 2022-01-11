@@ -40,10 +40,10 @@ class HomeController: UIViewController {
         let button = UIButton()
         button.tintColor = .white
         button.setDimensions(height: 50, width: 50)
-        button.imageView?.setDimensions(height: 26, width: 26)
+        button.imageView?.setDimensions(height: 40, width: 40)
         button.layer.cornerRadius = 50 / 2
         button.backgroundColor = .systemRed
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: "arrow.right.circle"), for: .normal)
         button.layer.shadowColor = UIColor.gray.cgColor
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 2
@@ -58,7 +58,7 @@ class HomeController: UIViewController {
         let iv = UIImageView()
         iv.clipsToBounds = true
 //        iv.image = #imageLiteral(resourceName: "Mikke")
-//        iv.backgroundColor = .gray
+        iv.backgroundColor = .gray
         iv.contentMode = .scaleAspectFill
         iv.layer.borderColor = UIColor.white.cgColor
         iv.layer.borderWidth = 8
@@ -187,13 +187,7 @@ class HomeController: UIViewController {
                 let url = URL(string: user.profileImageUrl)
                 self.profileImageView.sd_setImage(with: url)
             }
-           
-
-//            self.profileImageView.text = user.profileImageUrl
         }
-        
-           
-//            self.profileImageView.sd_setImage(with: URL(string: user.profileImageUrl))
      
     }
     

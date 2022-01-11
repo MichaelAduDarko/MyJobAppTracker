@@ -7,6 +7,8 @@
 
 import UIKit
 import Lottie
+import SCLAlertView
+import Firebase
 
 protocol ResetPasswordControllerDelegate: class {
     func didSendResetPasswordLink()
@@ -55,25 +57,25 @@ class RessetPasswordController: UIViewController , UITextFieldDelegate {
     //MARK:- Selectors
     
     @objc func handleResetPassword(){
-//        guard let email = viewModel.email else { return }
-//
-//        showLoader(true, withText: "Loading ..")
-//
-//        AuthService.resetPassword(forEmail: email) { error  in
-//
-//            if let error = error {
-//                self.showLoader(false)
-//                SCLAlertView().showError("error", subTitle: error.localizedDescription)
-//
-//                return
-//
-//            }
-//
-//            self.showLoader(false)
-//            self.delegate?.didSendResetPasswordLink()
-//            SCLAlertView().showSuccess("Success", subTitle: "We sent a link to your email to reset password")
-//
-//        }
+        guard let email = viewModel.email else { return }
+
+        showLoader(true, withText: "Loading ..")
+
+        AuthService.resetPassword(forEmail: email) { error  in
+
+            if let error = error {
+                self.showLoader(false)
+                SCLAlertView().showError("error", subTitle: error.localizedDescription)
+
+                return
+
+            }
+
+            self.showLoader(false)
+            self.delegate?.didSendResetPasswordLink()
+            SCLAlertView().showSuccess("Success", subTitle: "We sent a link to your email to reset password")
+
+        }
     }
     
     @objc func handleDismissal(){
