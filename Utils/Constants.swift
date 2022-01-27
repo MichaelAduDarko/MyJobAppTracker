@@ -27,6 +27,8 @@ struct ImageSystemName {
 struct Constant {
     
     static let LogInLabel =  "Log In"
+    static let Inprogress = "Inprogress"
+    static let Offer = "Your Offers"
     static let TitleLabel = "Keep Track\nOf Your Job\nApplications"
     static let Email = "Email"
     static let Password = "Password"

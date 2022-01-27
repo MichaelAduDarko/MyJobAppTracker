@@ -30,7 +30,7 @@ class HomeController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsVerticalScrollIndicator = false
-        cv.backgroundColor = .white
+        cv.backgroundColor = #colorLiteral(red: 0.1393083334, green: 0.1819166839, blue: 0.211665988, alpha: 1)
         cv.register(ApplicationsCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
@@ -120,7 +120,7 @@ class HomeController: UIViewController {
     private let backgroundView = Customview(color: .mainBlueTintColor)
     
     private let titleLabel: CustomLabel = {
-        let label =  CustomLabel( name: Font.Futura, fontSize: 20 , color: .black)
+        let label =  CustomLabel( name: Font.Futura, fontSize: 20 , color: .white)
         label.text = "Applications"
         return label
     }()
@@ -213,7 +213,7 @@ class HomeController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         profileImageView.setDimensions(height: 135, width: 135)
         profileImageView.layer.cornerRadius = 135 / 2
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.1393083334, green: 0.1819166839, blue: 0.211665988, alpha: 1)
         
         backgroundView.addSubview(profileImageView)
         profileImageView.anchor(top: backgroundView.topAnchor, right: backgroundView.rightAnchor , paddingTop: -65, paddingRight: 10)
@@ -298,9 +298,9 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let categoryDetail = ApplicationDetailsController()
-        self.navigationController?.pushViewController(categoryDetail, animated: true)
-        collectionView.deselectItem(at: indexPath, animated: true)
+//        let categoryDetail = ApplicationDetailsController()
+//        self.navigationController?.pushViewController(categoryDetail, animated: true)
+//        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 

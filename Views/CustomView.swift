@@ -17,7 +17,7 @@ class Customview: UIView {
         super.init(frame: .zero)
         backgroundColor = color
         layer.cornerRadius = 24
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOpacity = 1
         layer.shadowOffset = .zero
         layer.shadowRadius = 2

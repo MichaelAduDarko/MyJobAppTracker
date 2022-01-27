@@ -25,8 +25,11 @@
 		4715A69B27866F97001E6B44 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69A27866F97001E6B44 /* Item.swift */; };
 		4715A69C27866F97001E6B44 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69A27866F97001E6B44 /* Item.swift */; };
 		4715A69D27866F97001E6B44 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69A27866F97001E6B44 /* Item.swift */; };
+		4715A69F27A22F9C001E6B44 /* InprogressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A69E27A22F9B001E6B44 /* InprogressController.swift */; };
+		4715A6A127A230E7001E6B44 /* InprogressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A6A027A230E7001E6B44 /* InprogressCell.swift */; };
+		4715A6A327A24B33001E6B44 /* OfferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A6A227A24B33001E6B44 /* OfferController.swift */; };
+		4715A6A527A24C26001E6B44 /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A6A427A24C26001E6B44 /* OfferCell.swift */; };
 		471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E6CDC2757CFD00000B373 /* DummyData.swift */; };
-		474AA97B27584D9600E870C1 /* ApplicationDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */; };
 		474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97C275992C400E870C1 /* StackScrollView.swift */; };
 		474AA97F2759933700E870C1 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97E2759933700E870C1 /* FormTextField.swift */; };
 		474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE936274DBBF700D08732 /* AppDelegate.swift */; };
@@ -94,8 +97,11 @@
 		4715A69227852943001E6B44 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4715A69627866E6E001E6B44 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		4715A69A27866F97001E6B44 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4715A69E27A22F9B001E6B44 /* InprogressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressController.swift; sourceTree = "<group>"; };
+		4715A6A027A230E7001E6B44 /* InprogressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressCell.swift; sourceTree = "<group>"; };
+		4715A6A227A24B33001E6B44 /* OfferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferController.swift; sourceTree = "<group>"; };
+		4715A6A427A24C26001E6B44 /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
 		471E6CDC2757CFD00000B373 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetailsController.swift; sourceTree = "<group>"; };
 		474AA97C275992C400E870C1 /* StackScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollView.swift; sourceTree = "<group>"; };
 		474AA97E2759933700E870C1 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		474FE933274DBBF700D08732 /* MyJobAppTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyJobAppTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +288,8 @@
 				47C74E87275D3D59005B9BD8 /* CustomtextField.swift */,
 				47C74E89275D3F72005B9BD8 /* CustomButton.swift */,
 				47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */,
+				4715A6A027A230E7001E6B44 /* InprogressCell.swift */,
+				4715A6A427A24C26001E6B44 /* OfferCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,10 +300,11 @@
 				474FE969274DBD9F00D08732 /* MainTabViewController.swift */,
 				474FE972274DCAAD00D08732 /* FormSheetViewController.swift */,
 				474FE9782751A80A00D08732 /* HomeController.swift */,
-				474AA97A27584D9600E870C1 /* ApplicationDetailsController.swift */,
 				47C74E85275D3C82005B9BD8 /* LoginController.swift */,
 				47C74E9527603AE0005B9BD8 /* RegistrationController.swift */,
 				47C74E9727616DD3005B9BD8 /* RessetPasswordController.swift */,
+				4715A69E27A22F9B001E6B44 /* InprogressController.swift */,
+				4715A6A227A24B33001E6B44 /* OfferController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -579,8 +588,10 @@
 				4715A68B2783E618001E6B44 /* UserService.swift in Sources */,
 				474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */,
 				4715A69327852943001E6B44 /* ProfileViewModel.swift in Sources */,
+				4715A6A127A230E7001E6B44 /* InprogressCell.swift in Sources */,
 				47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */,
 				474FE96F274DC4E900D08732 /* CustomLabel.swift in Sources */,
+				4715A69F27A22F9C001E6B44 /* InprogressController.swift in Sources */,
 				4715A6852783D623001E6B44 /* User.swift in Sources */,
 				4715A69B27866F97001E6B44 /* Item.swift in Sources */,
 				47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */,
@@ -588,6 +599,7 @@
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
 				47C74E9627603AE0005B9BD8 /* RegistrationController.swift in Sources */,
 				474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */,
+				4715A6A327A24B33001E6B44 /* OfferController.swift in Sources */,
 				474FE97527504E8A00D08732 /* CustomView.swift in Sources */,
 				474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */,
 				47C74E8F275D43D3005B9BD8 /* AuthenticationViewModel.swift in Sources */,
@@ -597,9 +609,9 @@
 				474FE96D274DBFA100D08732 /* PostCustomButton.swift in Sources */,
 				474FE971274DC5BC00D08732 /* Constants.swift in Sources */,
 				4715A6832783D5A8001E6B44 /* AuthService.swift in Sources */,
-				474AA97B27584D9600E870C1 /* ApplicationDetailsController.swift in Sources */,
 				47C74E86275D3C82005B9BD8 /* LoginController.swift in Sources */,
 				474AA97F2759933700E870C1 /* FormTextField.swift in Sources */,
+				4715A6A527A24C26001E6B44 /* OfferCell.swift in Sources */,
 				474FE973274DCAAD00D08732 /* FormSheetViewController.swift in Sources */,
 				474FE968274DBD2400D08732 /* Extension.swift in Sources */,
 				4715A69727866E6E001E6B44 /* PostService.swift in Sources */,
