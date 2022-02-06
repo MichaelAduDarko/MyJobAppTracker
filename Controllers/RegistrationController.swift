@@ -84,8 +84,10 @@ class RegistrationController: UIViewController, UITextFieldDelegate {
                 return
                 
             } else {
-                DispatchQueue.main.async {
-                    SceneDelegate.routeToRootViewController()
+                UserService.fetchUser { _ in
+                    DispatchQueue.main.async {
+                        SceneDelegate.routeToRootViewController()
+                    }
                 }
                 
             }

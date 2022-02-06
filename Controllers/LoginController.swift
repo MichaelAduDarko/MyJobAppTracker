@@ -73,8 +73,11 @@ class LoginController: UIViewController, UITextFieldDelegate  {
                     return
                     
                 } else {
-                    DispatchQueue.main.async {
-                        SceneDelegate.routeToRootViewController()
+                    UserService.fetchUser { _ in
+                        self.showLoader(false)
+                        DispatchQueue.main.async {
+                            SceneDelegate.routeToRootViewController()
+                        }
                     }
                 }
             }

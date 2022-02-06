@@ -26,8 +26,8 @@ struct PostService {
         
     }
     
-    static func fetchPost(completion: @escaping([Item]) -> Void){
-        REF_POSTITEM.getDocuments { (snapshot, error) in
+    static func fetchPost(for userID: String, completion: @escaping([Item]) -> Void){
+        REF_POSTITEM.whereField("uid", isEqualTo: userID).getDocuments { (snapshot, error) in
             
             guard let documents = snapshot?.documents else { return }
             

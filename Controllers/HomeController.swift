@@ -162,6 +162,7 @@ class HomeController: UIViewController {
     @objc func handleLogOut(){
         do{
             try Auth.auth().signOut()
+            UserManager.shared.cleanup()
             DispatchQueue.main.async { SceneDelegate.routeToRootViewController() }
         }  catch {
             
@@ -194,7 +195,9 @@ class HomeController: UIViewController {
     //MARK:- API
     
     func postUserData(){
-        PostService.fetchPost { posts in
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        PostService.fetchPost(for: userID) { posts in
             self.posts = posts
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
