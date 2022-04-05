@@ -14,7 +14,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
     //MARK:- Properties
     private let datePicker = UIDatePicker()
     
-    private let backgroundView = Customview(color: .mainBlueTintColor)
+    private var viewModel = FormSheetViewModel()
     
     let stackScrollView = StackScrollView()
     
@@ -51,16 +51,10 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         button.layer.shadowOpacity = 1
         button.layer.shadowOffset = .zero
         button.layer.shadowRadius = 1
-        
+        button.isEnabled = false
         return button
     }()
     
-    private let titleLabel : CustomLabel = {
-        let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .white)
-        label.text = "Application Form"
-        label.textAlignment = .center
-        return label
-    }()
     
     private let Company: FormTextField = {
         let tf = FormTextField(placeHolder: "Company Name")
@@ -101,6 +95,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         configureUI()
         tapOutsideToDimissKeyboard()
+
         createDatePicker()
         Company.delegate = self
         jobLink.delegate = self
@@ -125,13 +120,27 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         stackScrollView.contentInset = .zero
     }
     
+    @objc func textDidChange(sender: UITextField){
+        if sender == Company{
+            viewModel.companyName = sender.text
+        } else if sender == jobTitle{
+            viewModel.title = sender.text
+        } else if sender == date{
+            viewModel.date = sender.text
+        } else  if sender == location{
+            viewModel.location = sender.text
+        } else {
+            viewModel.link = sender.text
+        }
+        checkFormStatus()
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         stackScrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
     }
     
     @objc func donePressed() {
-        
         //formatter
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -171,13 +180,22 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
     }
     
+    func checkFormStatus(){
+        if viewModel.formIsValid {
+            doneButton.isEnabled = true
+            doneButton.backgroundColor = .systemGreen
+        } else {
+            doneButton.isEnabled = false
+            doneButton.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        }
+    }
+    
     //MARK:- Helpers
     private func configureUI(){
         buttonAction()
-        view.backgroundColor = .white
+        configureTextFieldObservers()
+        view.backgroundColor = #colorLiteral(red: 0.1393083334, green: 0.1819166839, blue: 0.211665988, alpha: 1)
         
-        view.addSubview(backgroundView)
-        backgroundView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 5,paddingRight: 5, width: 130, height: 65)
         
         let topStack = UIStackView(arrangedSubviews: [cancelButton,UIView(), doneButton])
         topStack.translatesAutoresizingMaskIntoConstraints = false
@@ -186,15 +204,13 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         topStack.distribution = .equalCentering
         topStack.layoutMargins = .init(top: 0, left: 16, bottom: 0, right: 16)
         
-        backgroundView.addSubview(topStack)
-        topStack.anchor(top: backgroundView.topAnchor, left: backgroundView.leftAnchor,right: backgroundView.rightAnchor , paddingTop: -20, paddingLeft: 10,paddingRight: 10)
+        view.addSubview(topStack)
+        topStack.anchor(top: view.topAnchor, left: view.leftAnchor,right: view.rightAnchor , paddingTop: -20, paddingLeft: 10,paddingRight: 10)
         
-        backgroundView.addSubview(titleLabel)
-        titleLabel.anchor(top: topStack.bottomAnchor, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: -10)
         
         stackScrollView.backgroundColor = .white
         view.addSubview(stackScrollView)
-        stackScrollView.anchor(top: backgroundView.bottomAnchor, left: view.leftAnchor,bottom: view.bottomAnchor,right: view.rightAnchor, paddingTop: 40, paddingLeft: 5, paddingBottom: 200 , paddingRight: 5 )
+        stackScrollView.anchor(top: topStack.bottomAnchor, left: view.leftAnchor,bottom: view.bottomAnchor,right: view.rightAnchor, paddingTop: 40, paddingLeft: 5, paddingBottom: 200 , paddingRight: 5 )
         
         
         let stackView = UIStackView(arrangedSubviews: [Company,jobTitle, date,location, jobLink])
@@ -220,6 +236,16 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    
+    func configureTextFieldObservers(){
+        Company.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        jobTitle.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        jobLink.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        date.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        location.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+    }
+    
     func createDatePicker(){
         
         let toolbar = UIToolbar()
@@ -233,5 +259,5 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         datePicker.datePickerMode = .date
     }
     
-   
+    
 }

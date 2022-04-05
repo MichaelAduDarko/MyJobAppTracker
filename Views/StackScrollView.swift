@@ -21,6 +21,7 @@ final class StackScrollView: UIScrollView {
     }
     // MARK: - UI
     private func setUI() {
+        backgroundColor = #colorLiteral(red: 0.1393083334, green: 0.1819166839, blue: 0.211665988, alpha: 1)
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         backgroundColor = .systemGray6
@@ -39,6 +40,7 @@ final class StackScrollView: UIScrollView {
     // MARK: - Operations
     func insertView(_ view: UIView) {
         stackView.addArrangedSubview(view)
+        backgroundColor = #colorLiteral(red: 0.1393083334, green: 0.1819166839, blue: 0.211665988, alpha: 1)
     }
     // MARK: - Components
     private let stackView: UIStackView = {

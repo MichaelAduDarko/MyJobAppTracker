@@ -45,3 +45,22 @@ struct ResetPasswordViewModel: AuthenticationViewModel {
         return email?.isEmpty == false
     }
 }
+
+
+struct FormSheetViewModel: AuthenticationViewModel {
+    var companyName: String?
+    var title: String?
+    var date: String?
+    var location: String?
+    var link: String?
+    
+    var formIsValid: Bool {
+        return companyName?.isEmpty == false &&
+        title?.isEmpty == false &&
+        date?.isEmpty == false &&
+        location?.isEmpty == false &&
+        link?.isEmpty == false
+    }
+    
+    
+}
