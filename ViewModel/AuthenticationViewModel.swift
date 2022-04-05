@@ -61,6 +61,4 @@ struct FormSheetViewModel: AuthenticationViewModel {
         location?.isEmpty == false &&
         link?.isEmpty == false
     }
-    
-    
 }
