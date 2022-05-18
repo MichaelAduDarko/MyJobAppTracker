@@ -29,6 +29,8 @@
 		4715A6A127A230E7001E6B44 /* InprogressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A6A027A230E7001E6B44 /* InprogressCell.swift */; };
 		4715A6A327A24B33001E6B44 /* OfferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A6A227A24B33001E6B44 /* OfferController.swift */; };
 		4715A6A527A24C26001E6B44 /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715A6A427A24C26001E6B44 /* OfferCell.swift */; };
+		4717D4012834D30200942D2E /* RejectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4717D4002834D30200942D2E /* RejectionController.swift */; };
+		4717D4032834D3B500942D2E /* RejectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4717D4022834D3B500942D2E /* RejectionCell.swift */; };
 		471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E6CDC2757CFD00000B373 /* DummyData.swift */; };
 		474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97C275992C400E870C1 /* StackScrollView.swift */; };
 		474AA97F2759933700E870C1 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474AA97E2759933700E870C1 /* FormTextField.swift */; };
@@ -101,6 +103,8 @@
 		4715A6A027A230E7001E6B44 /* InprogressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressCell.swift; sourceTree = "<group>"; };
 		4715A6A227A24B33001E6B44 /* OfferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferController.swift; sourceTree = "<group>"; };
 		4715A6A427A24C26001E6B44 /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
+		4717D4002834D30200942D2E /* RejectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectionController.swift; sourceTree = "<group>"; };
+		4717D4022834D3B500942D2E /* RejectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectionCell.swift; sourceTree = "<group>"; };
 		471E6CDC2757CFD00000B373 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		474AA97C275992C400E870C1 /* StackScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollView.swift; sourceTree = "<group>"; };
 		474AA97E2759933700E870C1 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 				47C74E8B275D402F005B9BD8 /* CustomDontHaveAccountButton.swift */,
 				4715A6A027A230E7001E6B44 /* InprogressCell.swift */,
 				4715A6A427A24C26001E6B44 /* OfferCell.swift */,
+				4717D4022834D3B500942D2E /* RejectionCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				47C74E9727616DD3005B9BD8 /* RessetPasswordController.swift */,
 				4715A69E27A22F9B001E6B44 /* InprogressController.swift */,
 				4715A6A227A24B33001E6B44 /* OfferController.swift */,
+				4717D4002834D30200942D2E /* RejectionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				4715A69F27A22F9C001E6B44 /* InprogressController.swift in Sources */,
 				4715A6852783D623001E6B44 /* User.swift in Sources */,
 				4715A69B27866F97001E6B44 /* Item.swift in Sources */,
+				4717D4032834D3B500942D2E /* RejectionCell.swift in Sources */,
 				47C74E8C275D402F005B9BD8 /* CustomDontHaveAccountButton.swift in Sources */,
 				474FE9792751A80A00D08732 /* HomeController.swift in Sources */,
 				474FE939274DBBF700D08732 /* SceneDelegate.swift in Sources */,
@@ -601,6 +608,7 @@
 				474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */,
 				4715A6A327A24B33001E6B44 /* OfferController.swift in Sources */,
 				474FE97527504E8A00D08732 /* CustomView.swift in Sources */,
+				4717D4012834D30200942D2E /* RejectionController.swift in Sources */,
 				474AA97D275992C400E870C1 /* StackScrollView.swift in Sources */,
 				47C74E8F275D43D3005B9BD8 /* AuthenticationViewModel.swift in Sources */,
 				474FE97727506FD200D08732 /* DividerView.swift in Sources */,

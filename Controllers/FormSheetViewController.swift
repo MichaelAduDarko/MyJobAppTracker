@@ -102,6 +102,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         date.delegate = self
         location.delegate = self
         jobTitle.delegate = self
+        
     }
     
     //MARK:- Selectors

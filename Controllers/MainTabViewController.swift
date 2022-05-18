@@ -82,7 +82,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         nav3.title = "Offer"
 
         
-        let rejection = OfferController()
+        let rejection = RejectionController()
         let nav4 = templateNavigationController(image: UIImage(systemName: "hand.thumbsdown"), rootviewController: rejection)
         nav4.title = "Rejection"
         

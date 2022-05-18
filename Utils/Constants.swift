@@ -28,7 +28,8 @@ struct Constant {
     
     static let LogInLabel =  "Log In"
     static let Inprogress = "Inprogress"
-    static let Offer = "Your Offers"
+    static let Offer = "Offers"
+    static let Rejection = " Rejections"
     static let TitleLabel = "Keep Track\nOf Your Job\nApplications"
     static let Email = "Email"
     static let Password = "Password"
@@ -49,4 +50,5 @@ struct LottieAnimation {
     static let noData = "NoData"
     static let resetPassWrd = "ResetPasswords"
     static let emptyState = "emptystate"
+    static let emptyCategory = "Empty-Category"
 }
