@@ -60,6 +60,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         let tf = FormTextField(placeHolder: "Company Name")
         tf.heightAnchor.constraint(equalToConstant: 50).isActive = true
         tf.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        tf.becomeFirstResponder()
         return tf
     }()
     
