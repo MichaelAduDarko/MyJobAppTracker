@@ -14,10 +14,15 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
     
     //MARK:- Properties
     
-    private let postItemButton: PostCustomButton = {
+    private lazy var postItemButton: PostCustomButton = {
         let button = PostCustomButton()
         button.addTarget(self, action: #selector(handlepostItemButton), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var homeViewController: HomeController = {
+        let home = HomeController()
+        return home
     }()
     
     
@@ -33,7 +38,9 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
     
     @objc func handlepostItemButton(){
   
-        let nav = UINavigationController(rootViewController: FormSheetViewController())
+        let formSheetViewController = FormSheetViewController()
+        formSheetViewController.delegate = homeViewController
+        let nav = UINavigationController(rootViewController: formSheetViewController)
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
         print("Button Tapped")
@@ -64,7 +71,7 @@ class MainTabViewController: UITabBarController, UINavigationControllerDelegate 
         
     
         
-        let home = HomeController()
+        let home = homeViewController
         let nav1 = templateNavigationController(image: UIImage(systemName: "house"), rootviewController: home)
         nav1.title = "Home"
 

@@ -149,7 +149,7 @@ class ApplicationsCell: UICollectionViewCell {
         }
     }
     
-    func update(with item: Item) {
+    func update(with item: Application) {
         companyName.text = item.companyName
         location.text = item.location
         jobPosition.text = item.jobTitle

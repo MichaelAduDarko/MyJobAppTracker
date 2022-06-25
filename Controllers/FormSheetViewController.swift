@@ -9,6 +9,10 @@ import UIKit
 import Firebase
 import SCLAlertView
 
+protocol FormSheetControllerDelegate: AnyObject {
+    func didSuccessfullyUploadApplication(_ application: Application)
+}
+
 class FormSheetViewController: UIViewController, UITextFieldDelegate {
     
     //MARK:- Properties
@@ -17,6 +21,8 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
     private var viewModel = FormSheetViewModel()
     
     let stackScrollView = StackScrollView()
+    
+    weak var delegate: FormSheetControllerDelegate?
     
     
     private let cancelButton: UIButton = {
@@ -159,18 +165,29 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         guard let location = location.text else { return }
         guard let url = jobLink.text else { return }
         
+        let application = Application(companyName: company,
+                                      jobTitle: jobtitle,
+                                      date: date,
+                                      location: location,
+                                      applicationURL: url,
+                                      state: .submitted)
+        
         showLoader(true, withText: "Loading...")
         
-        PostService.uploadItem(jobTitle: jobtitle, date: date, companyName: company, location: location, applicationURL: url) { error in
+        PostService.uploadItem(jobTitle: jobtitle, date: date, companyName: company, location: location, applicationURL: url) { [weak self] error in
+            guard let self = self else { return }
             
             print("Debug: Success")
-            if let  error = error {
+            if let error = error {
                 self.showLoader(false)
                 SCLAlertView().showError(error.localizedDescription)
                 return
             }
             self.showLoader(false)
-            self.dismiss(animated: true, completion: nil)
+            
+            self.dismiss(animated: true) {
+                self.delegate?.didSuccessfullyUploadApplication(application)
+            }
         }
     }
     

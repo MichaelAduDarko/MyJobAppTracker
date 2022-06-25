@@ -14,7 +14,7 @@ private let reuseIdentifier = "cell"
 
 class HomeController: UIViewController {
     
-    private var posts = [Item]()
+    private var posts = [Application]()
     
     
     var users : User? {
@@ -146,18 +146,6 @@ class HomeController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
     }
-    
-    //MARK:- Selector
-    
-    @objc func handlepostItemButton(){
-        
-        let nav = UINavigationController(rootViewController: FormSheetViewController())
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true, completion: nil)
-        print("Button Tapped")
-        
-    }
-    
     
     @objc func handleLogOut(){
         do{
@@ -340,5 +328,16 @@ extension UICollectionView {
     
     func restore() {
         self.backgroundView = nil
+    }
+}
+
+extension HomeController: FormSheetControllerDelegate {
+    func didSuccessfullyUploadApplication(_ application: Application) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.posts.insert(application, at: 0)
+            self.collectionView.reloadData()
+        }
     }
 }
