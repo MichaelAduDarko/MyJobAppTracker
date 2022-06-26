@@ -155,6 +155,7 @@ class FormSheetViewController: UIViewController, UITextFieldDelegate {
         formatter.timeStyle = .none
         
         date.text = formatter.string(from: datePicker.date)
+        textDidChange(sender: date)
         self.view.endEditing(true)
     }
     

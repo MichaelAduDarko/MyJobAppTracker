@@ -37,7 +37,7 @@ class HomeController: UIViewController {
     }()
     
     
-    private let logOutButton: UIButton = {
+    private lazy var logOutButton: UIButton = {
         let button = UIButton()
         button.tintColor = .white
         button.setDimensions(height: 50, width: 50)
