@@ -73,6 +73,13 @@ class OfferCell: UICollectionViewCell {
         print("Delete")
     }
     
+    func update(with item: Application, indexPath: IndexPath) {
+        companyName.text = item.companyName
+        location.text = item.location
+        jobPosition.text = item.jobTitle
+        date.text = item.date
+    }
+    
     final private func configureUI(){
         
         backgroundColor = #colorLiteral(red: 0.06877002084, green: 0.08996887456, blue: 0.1052305398, alpha: 0.9835471854)

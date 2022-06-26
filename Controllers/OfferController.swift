@@ -7,11 +7,25 @@
 
 import Foundation
 import UIKit
+import Firebase
+import Combine
 
 private let reuseIdentifier = "cell"
 
 class OfferController: UIViewController {
     
+    private var cancellable: AnyCancellable?
+    private var offers = [Application]()
+    private let viewModel: ApplicationViewModel
+    
+    init(viewModel: ApplicationViewModel = ApplicationViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK:- Properties
     
@@ -33,6 +47,23 @@ class OfferController: UIViewController {
     
     override func viewDidLoad(){
         configureUI()
+        bindState()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        viewModel.fetch(for: userID, with: .offer)
+    }
+    
+    private func bindState() {
+        cancellable = viewModel.$applications
+            .dropFirst()
+            .sink { result in
+                self.offers = result
+                self.collectionView.reloadData()
+            }
     }
     
     
@@ -64,11 +95,14 @@ class OfferController: UIViewController {
 //MARK:- Extensions
 extension OfferController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return offers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! OfferCell
+        
+        let aplication = offers[indexPath.row]
+        cell.update(with: aplication, indexPath: indexPath)
        return cell
     }
     

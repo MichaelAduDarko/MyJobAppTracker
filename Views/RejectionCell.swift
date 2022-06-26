@@ -55,6 +55,13 @@ class RejectionCell: UICollectionViewCell {
         return button
     }()
     
+    func update(with item: Application, indexPath: IndexPath) {
+        companyName.text = item.companyName
+        location.text = item.location
+        jobPosition.text = item.jobTitle
+        date.text = item.date
+    }
+    
     //MARK:- LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame )

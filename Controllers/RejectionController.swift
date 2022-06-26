@@ -6,11 +6,26 @@
 //
 
 import UIKit
+import Firebase
+import Combine
 
 private let reuseIdentifier = "cell"
 
 class RejectionController: UIViewController {
   
+    private var cancellable: AnyCancellable?
+    private var rejections = [Application]()
+    private let viewModel: ApplicationViewModel
+    
+    init(viewModel: ApplicationViewModel = ApplicationViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let titlelabel: CustomLabel = {
         let label = CustomLabel( name: Font.Futura, fontSize: 28, color: .white)
         label.text = Constant.Rejection
@@ -28,7 +43,24 @@ class RejectionController: UIViewController {
     }()
     
     override func viewDidLoad() {
-      configureUI()
+        configureUI()
+        bindState()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        viewModel.fetch(for: userID, with: .rejected)
+    }
+    
+    private func bindState() {
+        cancellable = viewModel.$applications
+            .dropFirst()
+            .sink { result in
+                self.rejections = result
+                self.collectionView.reloadData()
+            }
     }
     
     
@@ -54,11 +86,13 @@ class RejectionController: UIViewController {
 //MARK:- Extensions
 extension RejectionController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return rejections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RejectionCell
+        let aplication = rejections[indexPath.row]
+        cell.update(with: aplication, indexPath: indexPath)
        return cell
     }
     
