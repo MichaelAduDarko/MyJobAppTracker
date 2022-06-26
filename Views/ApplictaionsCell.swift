@@ -19,7 +19,7 @@ struct homeData {
 }
 
 protocol DataCollectionProtocol {
-    func deleteData(indx: Int)
+    func delete(application: Application, at indexPath: IndexPath)
 }
 
 class ApplicationsCell: UICollectionViewCell {
@@ -95,7 +95,8 @@ class ApplicationsCell: UICollectionViewCell {
     
     
     var delegate: DataCollectionProtocol?
-    var index: IndexPath?
+    var indexPath: IndexPath?
+    var application: Application?
     
     override init(frame: CGRect) {
         super.init(frame: frame )
@@ -134,7 +135,9 @@ class ApplicationsCell: UICollectionViewCell {
     
     @objc func handleDeleteButtonButton(){
         deleteButton.shake()
-        delegate?.deleteData(indx: (index?.row)!)
+        
+        guard let application = application, let indexPath = indexPath else { return }
+        delegate?.delete(application: application, at: indexPath)
     }
     
     
@@ -149,13 +152,16 @@ class ApplicationsCell: UICollectionViewCell {
         }
     }
     
-    func update(with item: Application) {
+    func update(with item: Application, indexPath: IndexPath) {
+        self.indexPath = indexPath
+        self.application = item
+        
         companyName.text = item.companyName
         location.text = item.location
         jobPosition.text = item.jobTitle
         date.text = item.date
         applicationURL.text = item.applicationURL
-       
+        deleteButton.isHidden = item.postItemID == "-1"
     }
     
     

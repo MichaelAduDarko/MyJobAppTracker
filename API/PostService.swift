@@ -41,5 +41,15 @@ struct PostService {
         
     }
     
+    static func delete(application: Application, completion: @escaping(Bool) -> Void) {
+        REF_POSTITEM.document(application.postItemID).delete { error in
+            if error != nil {
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
+    
 }
 

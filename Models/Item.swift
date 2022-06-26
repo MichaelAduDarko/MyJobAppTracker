@@ -38,8 +38,8 @@ extension Application {
         self.date = date
         self.location = location
         self.applicationURL = applicationURL
-        self.postItemID = UUID().uuidString.lowercased()
-        self.uid = UUID().uuidString.lowercased()
+        self.postItemID = "-1"
+        self.uid = "-1"
         self.state = state
     }
 }

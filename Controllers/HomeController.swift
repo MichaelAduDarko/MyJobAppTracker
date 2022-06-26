@@ -9,6 +9,7 @@ import UIKit
 import Lottie
 import Firebase
 import SDWebImage
+import SCLAlertView
 
 private let reuseIdentifier = "cell"
 
@@ -281,8 +282,9 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ApplicationsCell
+        cell.delegate = self
         let item = posts[indexPath.row]
-        cell.update(with: item)
+        cell.update(with: item, indexPath: indexPath)
         return cell
         
     }
@@ -305,10 +307,25 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 
 
 extension HomeController: DataCollectionProtocol {
-    
-    func deleteData(indx: Int) {
-        items.remove(at: indx)
-        collectionView.reloadData()
+    func delete(application: Application, at indexPath: IndexPath) {
+        
+        showLoader(true, withText: "Loading...")
+        PostService.delete(application: application) { [weak self] success in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.showLoader(false)
+            
+                guard success else {
+                    SCLAlertView().showError("Something went wrong")
+                    return
+                }
+                
+                self.collectionView.performBatchUpdates {
+                    self.posts.remove(at: indexPath.item)
+                    self.collectionView.deleteItems(at: [indexPath])
+                }
+            }
+        }
     }
 }
 
