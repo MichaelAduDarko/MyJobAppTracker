@@ -53,6 +53,7 @@
 		474FE9792751A80A00D08732 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9782751A80A00D08732 /* HomeController.swift */; };
 		474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9832755911700D08732 /* ApplictaionsCell.swift */; };
 		4751409D2867F805004DE734 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751409C2867F805004DE734 /* ApplicationViewModel.swift */; };
+		4751409F28688643004DE734 /* ApplicationBadgeCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751409E28688643004DE734 /* ApplicationBadgeCount.swift */; };
 		47C74E86275D3C82005B9BD8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E85275D3C82005B9BD8 /* LoginController.swift */; };
 		47C74E88275D3D59005B9BD8 /* CustomtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E87275D3D59005B9BD8 /* CustomtextField.swift */; };
 		47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E89275D3F72005B9BD8 /* CustomButton.swift */; };
@@ -132,6 +133,7 @@
 		474FE9782751A80A00D08732 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		474FE9832755911700D08732 /* ApplictaionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplictaionsCell.swift; sourceTree = "<group>"; };
 		4751409C2867F805004DE734 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
+		4751409E28688643004DE734 /* ApplicationBadgeCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationBadgeCount.swift; sourceTree = "<group>"; };
 		47C74E85275D3C82005B9BD8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		47C74E87275D3D59005B9BD8 /* CustomtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomtextField.swift; sourceTree = "<group>"; };
 		47C74E89275D3F72005B9BD8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				471E6CDC2757CFD00000B373 /* DummyData.swift */,
 				4715A6842783D623001E6B44 /* User.swift */,
 				4715A69A27866F97001E6B44 /* Item.swift */,
+				4751409E28688643004DE734 /* ApplicationBadgeCount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4751409F28688643004DE734 /* ApplicationBadgeCount.swift in Sources */,
 				4715A68B2783E618001E6B44 /* UserService.swift in Sources */,
 				474FE937274DBBF700D08732 /* AppDelegate.swift in Sources */,
 				4715A69327852943001E6B44 /* ProfileViewModel.swift in Sources */,

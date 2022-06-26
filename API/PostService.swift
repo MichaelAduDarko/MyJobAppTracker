@@ -31,8 +31,10 @@ struct PostService {
             
             guard let documents = snapshot?.documents else { return }
             
-            let posts = documents.map({Application(postItemID: $0.documentID, dictionary: $0.data())}).filter { $0.state == state } 
-            completion(posts)
+            let posts = documents.map({Application(postItemID: $0.documentID, dictionary: $0.data())})
+            ApplicationBadgeCount.shared.update(posts)
+            let filteredData = posts.filter { $0.state == state }
+            completion(filteredData)
         }
         
     }

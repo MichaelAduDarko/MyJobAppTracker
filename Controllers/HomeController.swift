@@ -81,9 +81,9 @@ class HomeController: UIViewController {
     private let dividerView = DividerView()
     
     
-    private let inProgressCount : CustomLabel = {
+    private var inProgressCount : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemYellow)
-        label.text = "7"
+        label.text = "0"
         return label
     }()
     
@@ -93,9 +93,9 @@ class HomeController: UIViewController {
         return label
     }()
     
-    private let offerCount : CustomLabel = {
+    private var offerCount : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemGreen)
-        label.text = "4"
+        label.text = "0"
         return label
     }()
     
@@ -105,9 +105,9 @@ class HomeController: UIViewController {
         return label
     }()
     
-    private let rejectionCount : CustomLabel = {
+    private var rejectionCount : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 25 , color: .systemPink)
-        label.text = "50"
+        label.text = "0"
         return label
     }()
     
@@ -142,6 +142,7 @@ class HomeController: UIViewController {
   
        postUserData()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationUpdated), name: .applicationUpdated, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -163,6 +164,12 @@ class HomeController: UIViewController {
     @objc func handleRefresher(){
         posts.removeAll()
         postUserData()
+    }
+    
+    @objc func applicationUpdated() {
+        inProgressCount.text = "\(ApplicationBadgeCount.shared.inprogressCount)"
+        offerCount.text = "\(ApplicationBadgeCount.shared.offerCount)"
+        rejectionCount.text = "\(ApplicationBadgeCount.shared.rejectionCount)"
     }
     
     //MARK: - API
@@ -319,7 +326,7 @@ extension HomeController: DataCollectionProtocol {
                     return
                 }
                 
-                self.updateItem(at: indexPath)
+                self.postUserData()
             }
         }
     }
@@ -335,15 +342,8 @@ extension HomeController: DataCollectionProtocol {
                     return
                 }
                 
-                self.updateItem(at: params.indexPath)
+                self.postUserData()
             }
-        }
-    }
-    
-    private func updateItem(at indexPath: IndexPath) {
-        collectionView.performBatchUpdates {
-            posts.remove(at: indexPath.item)
-            collectionView.deleteItems(at: [indexPath])
         }
     }
 }
