@@ -7,11 +7,25 @@
 
 import Foundation
 import UIKit
+import Firebase
+import Combine
 
 private let reuseIdentifier = "cell"
 
 class InprogressController: UIViewController {
     
+    private var cancellable: AnyCancellable?
+    private var inprogress = [Application]()
+    private let viewModel: ApplicationViewModel
+    
+    init(viewModel: ApplicationViewModel = ApplicationViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK:- Properties
     
@@ -33,6 +47,19 @@ class InprogressController: UIViewController {
     
     override func viewDidLoad(){
         configureUI()
+        bindState()
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        viewModel.fetch(for: userID, with: .inProgress)
+    }
+    
+    private func bindState() {
+        cancellable = viewModel.$applications
+            .dropFirst()
+            .sink { result in
+                self.inprogress = result
+                self.collectionView.reloadData()
+            }
     }
     
     
@@ -64,11 +91,13 @@ class InprogressController: UIViewController {
 //MARK:- Extensions
 extension InprogressController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return inprogress.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! InprogressCell
+        let aplication = inprogress[indexPath.row]
+        cell.update(with: aplication, indexPath: indexPath)
        return cell
     }
     

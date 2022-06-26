@@ -52,6 +52,7 @@
 		474FE97727506FD200D08732 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE97627506FD200D08732 /* DividerView.swift */; };
 		474FE9792751A80A00D08732 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9782751A80A00D08732 /* HomeController.swift */; };
 		474FE9842755911700D08732 /* ApplictaionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE9832755911700D08732 /* ApplictaionsCell.swift */; };
+		4751409D2867F805004DE734 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751409C2867F805004DE734 /* ApplicationViewModel.swift */; };
 		47C74E86275D3C82005B9BD8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E85275D3C82005B9BD8 /* LoginController.swift */; };
 		47C74E88275D3D59005B9BD8 /* CustomtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E87275D3D59005B9BD8 /* CustomtextField.swift */; };
 		47C74E8A275D3F72005B9BD8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C74E89275D3F72005B9BD8 /* CustomButton.swift */; };
@@ -130,6 +131,7 @@
 		474FE97627506FD200D08732 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		474FE9782751A80A00D08732 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		474FE9832755911700D08732 /* ApplictaionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplictaionsCell.swift; sourceTree = "<group>"; };
+		4751409C2867F805004DE734 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
 		47C74E85275D3C82005B9BD8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		47C74E87275D3D59005B9BD8 /* CustomtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomtextField.swift; sourceTree = "<group>"; };
 		47C74E89275D3F72005B9BD8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				47C74E8E275D43D3005B9BD8 /* AuthenticationViewModel.swift */,
 				4715A69227852943001E6B44 /* ProfileViewModel.swift */,
+				4751409C2867F805004DE734 /* ApplicationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				471E6CDD2757CFD00000B373 /* DummyData.swift in Sources */,
 				474FE96A274DBD9F00D08732 /* MainTabViewController.swift in Sources */,
 				47C74E9827616DD3005B9BD8 /* RessetPasswordController.swift in Sources */,
+				4751409D2867F805004DE734 /* ApplicationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,6 @@
 import Firebase
 struct PostService {
     
-    static let shared = PostService()
-    
     static func uploadItem(jobTitle: String, date: String, companyName: String, location: String,applicationURL:String,completion: @escaping(Error?) -> Void){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
