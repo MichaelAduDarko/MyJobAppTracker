@@ -186,7 +186,7 @@ class HomeController: UIViewController {
     func postUserData(){
         guard let userID = Auth.auth().currentUser?.uid else { return }
         
-        PostService.fetchPost(for: userID) { posts in
+        PostService.fetchPost(for: userID, with: .submitted) { posts in
             self.posts = posts
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
@@ -308,7 +308,6 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 
 extension HomeController: DataCollectionProtocol {
     func delete(application: Application, at indexPath: IndexPath) {
-        
         showLoader(true, withText: "Loading...")
         PostService.delete(application: application) { [weak self] success in
             guard let self = self else { return }
@@ -320,11 +319,31 @@ extension HomeController: DataCollectionProtocol {
                     return
                 }
                 
-                self.collectionView.performBatchUpdates {
-                    self.posts.remove(at: indexPath.item)
-                    self.collectionView.deleteItems(at: [indexPath])
-                }
+                self.updateItem(at: indexPath)
             }
+        }
+    }
+    
+    func updateApplication(with params: UpdateParams) {
+        showLoader(true, withText: "Updating...")
+        PostService.update(using: params) { [weak self] success in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.showLoader(false)
+                guard success else {
+                    SCLAlertView().showError("Failed to update application state")
+                    return
+                }
+                
+                self.updateItem(at: params.indexPath)
+            }
+        }
+    }
+    
+    private func updateItem(at indexPath: IndexPath) {
+        collectionView.performBatchUpdates {
+            posts.remove(at: indexPath.item)
+            collectionView.deleteItems(at: [indexPath])
         }
     }
 }

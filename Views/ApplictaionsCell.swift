@@ -20,6 +20,7 @@ struct homeData {
 
 protocol DataCollectionProtocol {
     func delete(application: Application, at indexPath: IndexPath)
+    func updateApplication(with params: UpdateParams)
 }
 
 class ApplicationsCell: UICollectionViewCell {
@@ -119,17 +120,26 @@ class ApplicationsCell: UICollectionViewCell {
     
     @objc func handleInprogressButton(){
         inProgressButton.flash()
-        print("Button")
+        update(state: .inProgress)
     }
     
     @objc func handleOfferButtonButton(){
         offerButton.flash()
-        print("Button")
+        update(state: .offer)
     }
     
     @objc func handleRejectionButtonButton(){
         rejectionButton.flash()
-        print("Button")
+        update(state: .rejected)
+    }
+    
+    private func update(state: Application.State) {
+        guard let application = application, let indexPath = indexPath else {
+            return
+        }
+
+        let params = UpdateParams(identifier: application.postItemID, indexPath: indexPath, state: state)
+        delegate?.updateApplication(with: params)
     }
     
     

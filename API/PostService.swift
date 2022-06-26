@@ -28,15 +28,13 @@ struct PostService {
         
     }
     
-    static func fetchPost(for userID: String, completion: @escaping([Application]) -> Void){
+    static func fetchPost(for userID: String, with state: Application.State, completion: @escaping([Application]) -> Void){
         REF_POSTITEM.whereField("uid", isEqualTo: userID).getDocuments { (snapshot, error) in
             
             guard let documents = snapshot?.documents else { return }
             
-            let posts = documents.map({Application(postItemID: $0.documentID, dictionary: $0.data())})
+            let posts = documents.map({Application(postItemID: $0.documentID, dictionary: $0.data())}).filter { $0.state == state } 
             completion(posts)
-            
-            
         }
         
     }
@@ -51,5 +49,18 @@ struct PostService {
         }
     }
     
+    static func update(using param: UpdateParams, completion: @escaping (Bool) -> Void) {
+        REF_POSTITEM
+            .document(param.identifier)
+            .setData(["state": param.state.rawValue],
+                     merge: true) { result in
+            completion(result == nil)
+        }
+    }
 }
 
+struct UpdateParams {
+    let identifier: String
+    let indexPath: IndexPath
+    let state: Application.State
+}
