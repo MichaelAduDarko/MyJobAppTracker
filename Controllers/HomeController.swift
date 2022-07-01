@@ -58,7 +58,7 @@ class HomeController: UIViewController {
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
-//        iv.image = #imageLiteral(resourceName: "Mikke")
+        //        iv.image = #imageLiteral(resourceName: "Mikke")
         iv.backgroundColor = .gray
         iv.contentMode = .scaleAspectFill
         iv.layer.borderColor = UIColor.white.cgColor
@@ -68,13 +68,13 @@ class HomeController: UIViewController {
     
     private let candidateName : CustomLabel = {
         let label =  CustomLabel( name: Font.Futura, fontSize: 20 , color: .white)
-//        label.text = "Michael Adu Darko "
+        //        label.text = "Michael Adu Darko "
         return label
     }()
     
     private let jobTitle : CustomLabel = {
         let label =  CustomLabel( name: Font.AvenirNext, fontSize: 18 , color: .white)
-//        label.text = "iOS Developer"
+        //        label.text = "iOS Developer"
         return label
     }()
     
@@ -139,24 +139,29 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         populateUserData()
         configureUI()
-  
-       postUserData()
+        
+        postUserData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(applicationUpdated), name: .applicationUpdated, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        postUserData()
     }
     
     @objc func handleLogOut(){
-        do{
-            try Auth.auth().signOut()
-            UserManager.shared.cleanup()
-            DispatchQueue.main.async { SceneDelegate.routeToRootViewController() }
-        }  catch {
-            
-        }
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to logout? ", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { _ in
+            do{
+                try Auth.auth().signOut()
+                UserManager.shared.cleanup()
+                DispatchQueue.main.async { SceneDelegate.routeToRootViewController() }
+            }  catch {
+                
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
         
     }
     
@@ -180,12 +185,12 @@ class HomeController: UIViewController {
                 self.users  = user
                 self.candidateName.text = user.fullname
                 self.jobTitle.text = user.jobTitle
-
+                
                 let url = URL(string: user.profileImageUrl)
                 self.profileImageView.sd_setImage(with: url)
             }
         }
-     
+        
     }
     
     //MARK:- API
@@ -298,9 +303,9 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        let categoryDetail = ApplicationDetailsController()
-//        self.navigationController?.pushViewController(categoryDetail, animated: true)
-//        collectionView.deselectItem(at: indexPath, animated: true)
+        //        let categoryDetail = ApplicationDetailsController()
+        //        self.navigationController?.pushViewController(categoryDetail, animated: true)
+        //        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
@@ -320,7 +325,7 @@ extension HomeController: DataCollectionProtocol {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.showLoader(false)
-            
+                
                 guard success else {
                     SCLAlertView().showError("Something went wrong")
                     return

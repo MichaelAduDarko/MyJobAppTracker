@@ -9,7 +9,17 @@ import Firebase
 import UIKit
 
 
+protocol InProgressDataCollectionProtocol {
+    func delete(application: Application, at indexPath: IndexPath)
+    func updateApplication(with params: UpdateParams)
+}
+
+
 class InprogressCell: UICollectionViewCell {
+    
+    var delegate: InProgressDataCollectionProtocol?
+    var indexPath: IndexPath?
+    var application: Application?
     
     //MARK:- Properties
     
@@ -84,19 +94,33 @@ class InprogressCell: UICollectionViewCell {
     
     @objc func handleOfferButtonButton(){
         offerButton.flash()
-        print("Button")
+        update(state: .offer)
     }
     
     @objc func handleRejectionButtonButton(){
         rejectionButton.flash()
-        print("Button")
+        update(state: .rejected)
+    }
+    
+    private func update(state: Application.State) {
+        guard let application = application, let indexPath = indexPath else {
+            return
+        }
+
+        let params = UpdateParams(identifier: application.postItemID, indexPath: indexPath, state: state)
+        delegate?.updateApplication(with: params)
     }
     
     @objc func handleDeleteButtonButton(){
-        print("Delete")
+        guard let application = application, let indexPath = indexPath else { return }
+        delegate?.delete(application: application, at: indexPath)
+        
     }
     
     func update(with item: Application, indexPath: IndexPath) {
+        self.indexPath = indexPath
+        self.application = item
+        
         companyName.text = item.companyName
         location.text = item.location
         jobPosition.text = item.jobTitle

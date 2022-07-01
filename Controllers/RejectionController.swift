@@ -50,6 +50,11 @@ class RejectionController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        fetch()
+    }
+    
+    
+    private func fetch() {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         viewModel.fetch(for: userID, with: .rejected)
     }
@@ -93,6 +98,7 @@ extension RejectionController : UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RejectionCell
         let aplication = rejections[indexPath.row]
         cell.update(with: aplication, indexPath: indexPath)
+        cell.delegate = self
        return cell
     }
     
@@ -103,5 +109,26 @@ extension RejectionController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width - 10, height: 168)
     }
+    
+}
+
+
+extension RejectionController: RejectionDataCollectionProtocol {
+    func delete(application: Application, at indexPath: IndexPath) {
+        viewModel.delete(application: application) { result in
+            if result {
+                self.fetch()
+            }
+        }
+    }
+    
+    func updateApplication(with params: UpdateParams) {
+        viewModel.update(params: params) { success in
+            if success {
+                self.fetch()
+            }
+        }
+    }
+    
     
 }

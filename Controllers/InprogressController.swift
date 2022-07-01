@@ -53,8 +53,7 @@ class InprogressController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        viewModel.fetch(for: userID, with: .inProgress)
+        fetch()
     }
     
     private func bindState() {
@@ -64,6 +63,11 @@ class InprogressController: UIViewController {
                 self.inprogress = result
                 self.collectionView.reloadData()
             }
+    }
+    
+    private func fetch() {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        viewModel.fetch(for: userID, with: .inProgress)
     }
     
     
@@ -102,6 +106,7 @@ extension InprogressController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! InprogressCell
         let aplication = inprogress[indexPath.row]
         cell.update(with: aplication, indexPath: indexPath)
+        cell.delegate = self
        return cell
     }
     
@@ -114,3 +119,22 @@ extension InprogressController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+extension InprogressController: InProgressDataCollectionProtocol {
+    func delete(application: Application, at indexPath: IndexPath) {
+        viewModel.delete(application: application) { result in
+            if result {
+                self.fetch()
+            }
+        }
+    }
+
+    func updateApplication(with params: UpdateParams) {
+        viewModel.update(params: params) { success in
+            if success {
+                self.fetch()
+            }
+        }
+    }
+}
+

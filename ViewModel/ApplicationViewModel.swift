@@ -22,4 +22,13 @@ class ApplicationViewModel: ObservableObject {
             self.applications = result
         }
     }
+    
+    func delete(application: Application, completion: @escaping(Bool) -> Void) {
+        PostService.delete(application: application, completion: completion)
+    }
+    
+    func update(params: UpdateParams, completion: @escaping(Bool) -> Void) {
+        PostService.update(using: params, completion: completion)
+    }
+    
 }

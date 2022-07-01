@@ -12,6 +12,8 @@ import Combine
 
 private let reuseIdentifier = "cell"
 
+
+
 class OfferController: UIViewController {
     
     private var cancellable: AnyCancellable?
@@ -52,9 +54,7 @@ class OfferController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        viewModel.fetch(for: userID, with: .offer)
+       fetch()
     }
     
     private func bindState() {
@@ -66,6 +66,11 @@ class OfferController: UIViewController {
             }
     }
     
+    
+    private func fetch() {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        viewModel.fetch(for: userID, with: .offer)
+    }
     
     
     //MARK:- Selectors
@@ -103,6 +108,7 @@ extension OfferController: UICollectionViewDelegate, UICollectionViewDataSource 
         
         let aplication = offers[indexPath.row]
         cell.update(with: aplication, indexPath: indexPath)
+        cell.delegate = self
        return cell
     }
     
@@ -113,5 +119,26 @@ extension OfferController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width - 10, height: 168)
     }
+    
+}
+
+
+extension OfferController: OfferDataCollectionProtocol {
+    func delete(application: Application, at indexPath: IndexPath) {
+        viewModel.delete(application: application) { result in
+            if result {
+                self.fetch()
+            }
+        }
+    }
+    
+    func updateApplication(with params: UpdateParams) {
+        viewModel.update(params: params) { success in
+            if success {
+                self.fetch()
+            }
+        }
+    }
+    
     
 }
